@@ -12,8 +12,8 @@
       "tags": ["winter", "snow", "glass", "light", "anime"],
       "theme": "themes/snow-day-glass/theme.json",
       "theme_sha256": "d5e8bcaf013074a6a4db46c422c0f3bd4e09e37ee1031766c72564d23fa21534",
-      "image": "themes/snow-day-glass/image.jpg",
-      "image_sha256": "5773e58d6d6375b2ec59c70880bae8d1f70ddbecbfb1875a5ee096bf71afb6d9",
+      "image": "themes/snow-day-glass/image.png",
+      "image_sha256": "40d0382bca7e5c1941d23c9bbb9ac53b3ba416dcef29349ce49efd66a4c2f0d2",
       "preview": "themes/snow-day-glass/preview.jpg"
     }
   ]

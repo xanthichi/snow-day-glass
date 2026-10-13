@@ -1,0 +1,51 @@
+{
+  "packageVersion": 1,
+  "themeId": "snow-day-glass",
+  "version": "0.4.0",
+  "skinApiVersion": 1,
+  "minClientVersion": "1.5.12",
+  "platforms": [
+    "windows"
+  ],
+  "capabilities": [
+    "background",
+    "tokens",
+    "safe-css"
+  ],
+  "publisher": {
+    "id": "youyi",
+    "displayName": "youyi"
+  },
+  "license": "MIT-AND-Reference-Only",
+  "provenance": {
+    "aiGenerated": true,
+    "summary": "Theme configuration, colors and safe-css authored with AI assistance; background artwork is user-provided third-party material used for personal reference."
+  },
+  "files": [
+    {
+      "path": "theme.json",
+      "mediaType": "application/json",
+      "bytes": 637,
+      "sha256": "15acc2e630cc3e44105e8209b5482ed7e61d3aa0d7dbf1043cf314d38b0301ea"
+    },
+    {
+      "path": "theme.css",
+      "mediaType": "text/css",
+      "bytes": 1862,
+      "sha256": "26bed845c213e40080f371fd64810f75664a17acf4b9fb69c04eeece0789da67"
+    },
+    {
+      "path": "background.png",
+      "mediaType": "image/png",
+      "bytes": 2209187,
+      "sha256": "40d0382bca7e5c1941d23c9bbb9ac53b3ba416dcef29349ce49efd66a4c2f0d2"
+    },
+    {
+      "path": "LICENSE.txt",
+      "mediaType": "text/plain",
+      "bytes": 432,
+      "sha256": "6403bda300d733f7105e168130791762db48bef4fa4a00341af63ca8706e1e37"
+    }
+  ],
+  "createdAt": "2026-10-13T12:00:00Z"
+}

@@ -1,0 +1,10 @@
+Snow Day Glass DreamSkin package
+
+Theme author: youyi
+Background image source: https://www.pixiv.net/artworks/139476242
+All rights to the artwork belong to its original author; this package
+references it for personal use only.
+
+Configuration and CSS glue in this package: MIT License (see repository LICENSE).
+Consolas is a proprietary Microsoft font and is not distributed here; the
+package uses generic system font families only.

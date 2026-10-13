@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "id": "snow-day-glass",
+  "name": "Snow Day Glass",
+  "image": "background.png",
+  "brandSubtitle": "SNOW WORKSPACE",
+  "tagline": "雪境玻璃，冬日里的清爽专注。",
+  "projectPrefix": "雪境 · ",
+  "projectLabel": "选择项目",
+  "statusText": "SNOW ONLINE",
+  "quote": "BUILD IN CLEAR AIR",
+  "appearance": "light",
+  "colors": {
+    "background": "#eef5fb",
+    "panel": "#ffffff",
+    "panelAlt": "#f3f9fd",
+    "accent": "#e0782d",
+    "accentAlt": "#d96a1f",
+    "secondary": "#a8cfe8",
+    "highlight": "#b45718",
+    "text": "#2b3a49",
+    "muted": "#5f7488",
+    "line": "#c9dcea"
+  }
+}

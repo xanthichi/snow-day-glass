@@ -15,6 +15,7 @@
 ```text
 index.json                       Codex++ 市场清单（含 SHA-256）
 themes/snow-day-glass/           Codex++ 主题格式（schemaVersion 1）
+dreamskin-package/               DreamSkin 导入包源文件（Safe CSS 协议）
 codex-theme/                     完整版 Codex 桌面主题（codex-theme-creator 格式）
   theme.json / theme.css         主题清单与完整样式（内置字体 base64）
   assets/fonts/                  LXGW WenKai GB WOFF2 + SIL OFL 1.1 许可证
@@ -56,6 +57,14 @@ npx tsx <skill-dir>/scripts/apply-theme.ts restore   # 恢复原生外观
 将 `themes/snow-day-glass/` 与 `index.json` 登记项通过 Pull Request 提交到
 [CodexPlusPlus-Themes](https://github.com/BigPizzaV3/CodexPlusPlus-Themes)，
 合并后即可在 Codex++ 主题市场安装。
+
+### DreamSkin 主题包（Codex++ 内导入）
+
+`dreamskin-package/` 按 DreamSkin Safe CSS 协议组织：`manifest.json`（含文件
+SHA-256）、`theme.json`、`theme.css`（`data-ds-part` 安全规则）、
+`background.png` 与 `LICENSE.txt`。打包时把目录内容压缩为 zip 导入即可。
+注意：该协议限制 CSS 只能使用注册的 `data-ds-part` 选择器与白名单属性，
+且字体仅允许系统通用字体族，因此玻璃效果为简化版，不包含内嵌字体。
 
 ## 设计契约
 
