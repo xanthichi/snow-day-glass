@@ -7,8 +7,8 @@
   font-display: swap;
 }
 
-/* snow-day-glass: native-immersive light theme over a winter snowball-fight artwork.
-   Liquid-glass sidebar tabs follow the FU Liquiglass surface primitive. */
+/* snow-day-glass: one whole-app wallpaper with small static glass surfaces.
+   Scrolling and sidebar hover never animate a full-panel filter or shadow. */
 
 :root[data-codexthemes-theme="snow-day-glass"] {
   --ct-canvas: #eef5fb;
@@ -29,9 +29,9 @@
   --lg-tint-strong: rgba(255, 255, 255, 0.58);
   --lg-border: rgba(255, 255, 255, 0.55);
   --lg-highlight: rgba(255, 255, 255, 0.65);
-  --lg-shadow: 0 10px 30px rgba(43, 58, 73, 0.16);
-  --lg-blur: 18px;
-  --lg-saturation: 160%;
+  --lg-shadow: 0 3px 12px rgba(43, 58, 73, 0.09);
+  --lg-blur: 6px;
+  --lg-saturation: 108%;
 
   --ct-font-display: "Consolas", "LXGW WenKai GB", "Microsoft YaHei UI", sans-serif;
   --ct-font-body: "Consolas", "LXGW WenKai GB", "Microsoft YaHei UI", sans-serif;
@@ -60,8 +60,8 @@
   --color-token-bg-primary: var(--ct-canvas) !important;
   --color-token-bg-secondary: var(--ct-surface) !important;
   --color-token-bg-tertiary: var(--ct-raised) !important;
-  --color-token-main-surface-primary: var(--ct-canvas) !important;
-  --color-token-side-bar-background: var(--ct-surface) !important;
+  --color-token-main-surface-primary: transparent !important;
+  --color-token-side-bar-background: rgba(255, 255, 255, 0.5) !important;
   --color-token-foreground: var(--ct-text) !important;
   --color-token-text-primary: var(--ct-text) !important;
   --color-token-text-secondary: var(--ct-muted) !important;
@@ -110,54 +110,56 @@
   --color-token-text-code-block-background: #f4f9fd !important;
 }
 
-/* Layered canvas: artwork on home only, veil protecting the text-safe center column. */
-main.main-surface[data-codexthemes-page="home"],
-main.main-surface[data-codexthemes-page="conversation"] {
+/* One static background for the entire window. Contain preserves the complete artwork. */
+:root[data-codexthemes-theme="snow-day-glass"] body {
   color: var(--ct-text);
-  background: linear-gradient(180deg, #f3f9fd 0%, var(--ct-canvas) 100%);
+  font-family: var(--ct-font-body) !important;
+  background: var(--ct-canvas) !important;
+  isolation: isolate;
 }
 
-main.main-surface[data-codexthemes-page="home"]::before {
+:root[data-codexthemes-theme="snow-day-glass"] body::before {
   content: "";
-  position: absolute;
+  position: fixed;
   inset: 0;
-  z-index: 0;
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.66) 0%, rgba(255, 255, 255, 0.3) 34%, rgba(255, 255, 255, 0) 60%),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.34) 0%, rgba(255, 255, 255, 0.58) 38%, rgba(238, 245, 251, 0.78) 72%, rgba(238, 245, 251, 0.9) 100%),
-    var(--ct-art) 35% 40% / cover no-repeat;
+  z-index: -1;
+  background: var(--ct-canvas) var(--ct-art) center / contain no-repeat;
   pointer-events: none;
 }
 
-/* Liquid-glass sidebar: the whole rail is one glass panel; tabs are glass chips. */
-aside.app-shell-left-panel {
+:root[data-codexthemes-theme="snow-day-glass"] main.main-surface {
   color: var(--ct-text);
-  background: var(--lg-tint);
+  background: transparent !important;
+}
+
+/* Scrolling the rail never resamples a rail-sized blur or animates its shadow. */
+:root[data-codexthemes-theme="snow-day-glass"] aside.app-shell-left-panel {
+  color: var(--ct-text);
+  background: rgba(255, 255, 255, 0.5) !important;
   border-color: var(--lg-border);
-  box-shadow: var(--lg-shadow), inset 0 1px 0 rgba(255, 255, 255, 0.4);
-  -webkit-backdrop-filter: blur(var(--lg-blur)) saturate(var(--lg-saturation));
-  backdrop-filter: blur(var(--lg-blur)) saturate(var(--lg-saturation));
+  box-shadow: none !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
 }
 
-aside.app-shell-left-panel a,
-aside.app-shell-left-panel button:not([aria-expanded]) {
+:root[data-codexthemes-theme="snow-day-glass"] aside.app-shell-left-panel a,
+:root[data-codexthemes-theme="snow-day-glass"] aside.app-shell-left-panel button:not([aria-expanded]) {
   color: var(--ct-text);
-  border-radius: 10px;
-  transition: background-color 180ms ease, transform 180ms ease, box-shadow 180ms ease;
+  border-radius: 8px;
+  transition: background-color 120ms ease, color 120ms ease;
 }
 
-aside.app-shell-left-panel a:hover,
-aside.app-shell-left-panel button:not([aria-expanded]):hover {
+:root[data-codexthemes-theme="snow-day-glass"] aside.app-shell-left-panel a:hover,
+:root[data-codexthemes-theme="snow-day-glass"] aside.app-shell-left-panel button:not([aria-expanded]):hover {
   background: var(--lg-tint-strong);
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(43, 58, 73, 0.12), inset 0 1px 0 var(--lg-highlight);
+  box-shadow: inset 0 1px 0 var(--lg-highlight), inset 0 0 0 1px rgba(255, 255, 255, 0.45);
 }
 
-aside.app-shell-left-panel a[aria-current="page"],
-aside.app-shell-left-panel a[data-active="true"],
-aside.app-shell-left-panel button[aria-pressed="true"] {
+:root[data-codexthemes-theme="snow-day-glass"] aside.app-shell-left-panel a[aria-current="page"],
+:root[data-codexthemes-theme="snow-day-glass"] aside.app-shell-left-panel a[data-active="true"],
+:root[data-codexthemes-theme="snow-day-glass"] aside.app-shell-left-panel button[aria-pressed="true"] {
   background: var(--lg-tint-strong);
-  box-shadow: inset 0 1px 0 var(--lg-highlight), 0 2px 8px rgba(43, 58, 73, 0.1);
+  box-shadow: inset 0 1px 0 var(--lg-highlight), inset 0 0 0 1px var(--lg-border);
 }
 
 aside.app-shell-left-panel a:focus-visible,
@@ -166,16 +168,24 @@ aside.app-shell-left-panel button:focus-visible {
   outline-offset: 1px;
 }
 
-/* Raised surfaces share the same material family, denser for readability. */
-.composer-surface-chrome,
-[role="menu"],
-[role="dialog"],
-[data-codexthemes-surface="output"],
-[data-codexthemes-surface="diff"] {
+/* Readability is local to bounded content, rather than a full-window veil. */
+:root[data-codexthemes-theme="snow-day-glass"] [data-message-author-role],
+:root[data-codexthemes-theme="snow-day-glass"] [data-codexthemes-surface="output"],
+:root[data-codexthemes-theme="snow-day-glass"] [data-codexthemes-surface="diff"] {
   color: var(--ct-text);
   background: var(--ct-surface-strong);
   border-color: var(--ct-border);
-  box-shadow: var(--lg-shadow);
+}
+
+:root[data-codexthemes-theme="snow-day-glass"] .composer-surface-chrome,
+:root[data-codexthemes-theme="snow-day-glass"] [role="menu"],
+:root[data-codexthemes-theme="snow-day-glass"] [role="dialog"] {
+  color: var(--ct-text);
+  background: var(--ct-surface-strong) !important;
+  border-color: rgba(255, 255, 255, 0.9) !important;
+  box-shadow: var(--lg-shadow), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  -webkit-backdrop-filter: blur(var(--lg-blur)) saturate(var(--lg-saturation));
+  backdrop-filter: blur(var(--lg-blur)) saturate(var(--lg-saturation));
 }
 
 main.main-surface[data-codexthemes-page="home"] h1 {
@@ -183,25 +193,17 @@ main.main-surface[data-codexthemes-page="home"] h1 {
   letter-spacing: 0;
 }
 
-/* Ambient snowfall motes (rich): sparse, quiet, below controls. */
-main.main-surface[data-codexthemes-page="home"]::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-  background:
-    radial-gradient(circle at 88% 12%, rgba(255, 255, 255, 0.9) 0 2px, transparent 3px),
-    radial-gradient(circle at 12% 22%, rgba(255, 255, 255, 0.8) 0 1.5px, transparent 2.5px),
-    radial-gradient(circle at 70% 60%, rgba(255, 255, 255, 0.7) 0 1px, transparent 2px);
-  background-size: 137px 137px, 89px 89px, 113px 113px;
-  opacity: 0.55;
-  animation: ct-snowfall-drift 14s ease-in-out infinite alternate;
+:root[data-codexthemes-theme="snow-day-glass"] .group\/home-suggestions button {
+  color: var(--ct-text);
+  background: rgba(255, 255, 255, 0.82);
+  border-color: var(--lg-border);
+  box-shadow: inset 0 1px 0 var(--lg-highlight);
+  transition: background-color 120ms ease;
 }
 
-@keyframes ct-snowfall-drift {
-  from { transform: translateY(0); opacity: 0.45; }
-  to { transform: translateY(14px); opacity: 0.65; }
+:root[data-codexthemes-theme="snow-day-glass"] .group\/home-suggestions button:hover {
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: inset 0 1px 0 var(--lg-highlight), inset 0 0 0 1px var(--lg-border);
 }
 
 main.main-surface[data-codexthemes-page="home"],
@@ -235,15 +237,33 @@ main.main-surface[data-codexthemes-page="conversation"] ::selection {
 :focus-visible { outline-color: var(--ct-focus); }
 
 @media (max-width: 980px) {
-  main.main-surface[data-codexthemes-page="home"]::before { background-position: 62% 40%; }
-  main.main-surface[data-codexthemes-page="home"]::after { display: none; }
-  aside.app-shell-left-panel { --lg-blur: 12px; }
+  :root[data-codexthemes-theme="snow-day-glass"] { --lg-blur: 4px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  main.main-surface[data-codexthemes-page="home"]::after { animation: none; }
-  aside.app-shell-left-panel a,
-  aside.app-shell-left-panel button:not([aria-expanded]) {
-    transition-duration: 0.01ms !important;
+  :root[data-codexthemes-theme="snow-day-glass"] aside.app-shell-left-panel a,
+  :root[data-codexthemes-theme="snow-day-glass"] aside.app-shell-left-panel button:not([aria-expanded]) {
+    transition: none !important;
+  }
+}
+
+@supports not (backdrop-filter: blur(1px)) {
+  :root[data-codexthemes-theme="snow-day-glass"] .composer-surface-chrome,
+  :root[data-codexthemes-theme="snow-day-glass"] [role="menu"],
+  :root[data-codexthemes-theme="snow-day-glass"] [role="dialog"] {
+    background: #f8fbfd !important;
+  }
+}
+
+@media (forced-colors: active) {
+  :root[data-codexthemes-theme="snow-day-glass"] body { background: Canvas !important; }
+  :root[data-codexthemes-theme="snow-day-glass"] aside.app-shell-left-panel,
+  :root[data-codexthemes-theme="snow-day-glass"] .composer-surface-chrome,
+  :root[data-codexthemes-theme="snow-day-glass"] [role="menu"],
+  :root[data-codexthemes-theme="snow-day-glass"] [role="dialog"] {
+    background: Canvas !important;
+    color: CanvasText !important;
+    box-shadow: none;
+    backdrop-filter: none;
   }
 }

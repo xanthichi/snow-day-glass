@@ -10,6 +10,12 @@
   "statusText": "SNOW ONLINE",
   "quote": "BUILD IN CLEAR AIR",
   "appearance": "light",
+  "art": {
+    "focusX": 0.5,
+    "focusY": 0.5,
+    "safeArea": "none",
+    "taskMode": "full"
+  },
   "colors": {
     "background": "#eef5fb",
     "panel": "#ffffff",
