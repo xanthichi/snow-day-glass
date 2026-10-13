@@ -3,7 +3,7 @@
   "id": "snow-day-glass",
   "displayName": "Snow Day Glass",
   "description": "A bright winter snowball-fight workspace: icy blue-white canvas, liquid-glass sidebar tabs, warm scarf-orange accents.",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "mode": "light",
   "css": "theme.css",
   "art": "assets/artwork.jpg",

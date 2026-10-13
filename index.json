@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "themes": [
+    {
+      "id": "snow-day-glass",
+      "name": "Snow Day Glass",
+      "version": "0.4.0",
+      "author": "youyi",
+      "description": "冬日雪仗氛围的液态玻璃主题：冰雪蓝白画布、玻璃侧栏选项卡、内嵌霞鹜文楷 GB 字体。背景图来自 pixiv.net/artworks/139476242。",
+      "license": "主题配置与脚本按仓库 LICENSE（MIT）提供；背景图与字体授权见 themes/snow-day-glass/LICENSE.md",
+      "source_url": "https://github.com/xanthichi/snow-day-glass",
+      "tags": ["winter", "snow", "glass", "light", "anime"],
+      "theme": "themes/snow-day-glass/theme.json",
+      "theme_sha256": "d5e8bcaf013074a6a4db46c422c0f3bd4e09e37ee1031766c72564d23fa21534",
+      "image": "themes/snow-day-glass/image.jpg",
+      "image_sha256": "5773e58d6d6375b2ec59c70880bae8d1f70ddbecbfb1875a5ee096bf71afb6d9",
+      "preview": "themes/snow-day-glass/preview.jpg"
+    }
+  ]
+}
