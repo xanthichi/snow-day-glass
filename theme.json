@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "id": "snow-day-glass",
+  "displayName": "Snow Day Glass",
+  "description": "A bright winter snowball-fight workspace: icy blue-white canvas, liquid-glass sidebar tabs, warm scarf-orange accents.",
+  "version": "0.2.0",
+  "mode": "light",
+  "css": "theme.css",
+  "art": "assets/artwork.jpg",
+  "preview": "previews/home-1440x900.png",
+  "design": {
+    "layoutMode": "native-immersive",
+    "backgroundScope": "home",
+    "modeReason": "The reference artwork is a high-luminance winter snow scene; dark mode would fight its brightness.",
+    "artFocalPoint": "35% 40%",
+    "textSafeRegion": "center column, veiled above the snowfield",
+    "contrastStrategy": "Icy blue-white glass tint plus a soft luminance veil keep native text dark and readable over the snow artwork.",
+    "allowedChanges": [
+      "semantic palette",
+      "native materials",
+      "scoped artwork",
+      "decoration"
+    ],
+    "preserve": [
+      "native geometry",
+      "native controls",
+      "native states"
+    ],
+    "verificationViewports": [
+      "1440x900",
+      "980x760"
+    ]
+  },
+  "palette": {
+    "canvas": "#eef5fb",
+    "surface": "rgba(255, 255, 255, 0.72)",
+    "raised": "#ffffff",
+    "text": "#2b3a49",
+    "muted": "#5f7488",
+    "accent": "#e0782d",
+    "border": "#c9dcea",
+    "focus": "#3f9c5a",
+    "success": "#3f9c5a",
+    "warning": "#b07a1f",
+    "danger": "#c04a4a",
+    "terminalBackground": "#f4f9fd",
+    "terminalForeground": "#2b3a49"
+  },
+  "platforms": [
+    "macos",
+    "windows"
+  ],
+  "author": {
+    "name": "youyi"
+  },
+  "homepage": "https://codexthemes.ai",
+  "skillUrl": "https://codexthemes.ai/SKILL.md"
+}
