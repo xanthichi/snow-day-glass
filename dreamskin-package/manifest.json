@@ -1,7 +1,7 @@
 {
   "packageVersion": 1,
   "themeId": "snow-day-glass",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "skinApiVersion": 1,
   "minClientVersion": "1.5.12",
   "platforms": [
@@ -19,7 +19,7 @@
   "license": "MIT-AND-Reference-Only",
   "provenance": {
     "aiGenerated": true,
-    "summary": "User-provided background from https://www.pixiv.net/artworks/139476242. AI-assisted lightweight glass styling with one continuous full-window wallpaper, no sidebar blur and a soft composer shadow."
+    "summary": "Background from https://www.pixiv.net/artworks/139476242. Clear reading surfaces and local hover glass. Per-row liquid glass and clearing upstream tool blur use the separate official Codex++ user extension."
   },
   "files": [
     {
@@ -31,8 +31,8 @@
     {
       "path": "theme.css",
       "mediaType": "text/css",
-      "bytes": 2971,
-      "sha256": "ae3ed53a6b7ae05b9e9096b5b45f4bd6368df2545c2687dfd66b6a3eb178dc03"
+      "bytes": 2964,
+      "sha256": "3ee51df40ad5676342b80f47d0d90d1df9fe68a59c4f0b0495db8ff5ffe4eea0"
     },
     {
       "path": "background.png",

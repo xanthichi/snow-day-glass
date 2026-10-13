@@ -1,13 +1,14 @@
 # Snow Day Glass
 
-冬日雪仗氛围的 Codex 桌面主题：贯穿整个窗口的背景图、主要区块的轻量玻璃材质、
-柔和的输入框阴影。原生 Codex 版本内嵌 [霞鹜文楷 GB](https://github.com/lxgw/LxgwWenKaiGB)
+冬日雪仗氛围的 Codex 桌面主题：贯穿整个窗口的清晰背景、类似 iOS 的悬停玻璃高光、
+清晰正文和柔和输入框阴影。原生 Codex 版本内嵌 [霞鹜文楷 GB](https://github.com/lxgw/LxgwWenKaiGB)
 字体；Codex++ ZIP 使用 DreamSkin 支持的系统字体。
 
-![DreamSkin 离线设计预览](previews/dreamskin-conversation-1440x900.png)
+![候选项液态玻璃离线设计预览](previews/liquid-candidate-hover-1440x900.png)
 
 上图由真实上游 DreamSkin 渲染器在模拟工作区中生成，是设计预览。
-ZIP 已通过真实 Rust 导入校验；新版尚未在用户的 Codex++ 窗口中应用和实测帧率。
+ZIP 已通过真实 Rust 导入校验；增强层通过 18 项离线功能、生命周期和性能检查。
+新版尚未在用户的 Codex++ 窗口中应用和实测帧率。
 
 ## 背景图片来源
 
@@ -25,6 +26,7 @@ codex-theme/                     完整版 Codex 桌面主题（codex-theme-crea
   assets/fonts/                  LXGW WenKai GB WOFF2 + SIL OFL 1.1 许可证
   previews/                      1440x900 与 980x760 预览
 scripts/validate.mjs             Codex++ 格式结构校验脚本
+extensions/                     官方用户扩展：逐项悬停玻璃、工具正文去模糊、安装及关闭脚本
 ```
 
 仓库结构参考了 [CodexPlusPlus-Themes](https://github.com/BigPizzaV3/CodexPlusPlus-Themes)
@@ -68,8 +70,22 @@ npx tsx <skill-dir>/scripts/apply-theme.ts restore   # 恢复原生外观
 `dreamskin-package/` 按 DreamSkin Safe CSS 协议组织：`manifest.json`（含文件
 SHA-256）、`theme.json`、`theme.css`（`data-ds-part` 安全规则）、
 `background.png` 与 `LICENSE.txt`。导入使用
-[`snow-day-glass-theme-v0.5.0.zip`](dist/snow-day-glass-theme-v0.5.0.zip)，
-选中 v0.5.0 后应用。不要继续导入旧的 v0.4.0 ZIP。
+[`snow-day-glass-theme-v0.6.0.zip`](dist/snow-day-glass-theme-v0.6.0.zip)，
+选中 v0.6.0 后应用。不要继续导入旧版 ZIP。
+
+**完整的逐项悬停玻璃效果还需官方用户扩展**，因为主题 ZIP 的 Safe CSS 无法
+选择历史行、导航项或菜单候选，也无法清理上游工具输出的内部模糊。安装：
+
+```powershell
+pwsh -File extensions/Install-Glass.ps1
+```
+
+然后在 Codex++ 管理页点“热重载拓展”。禁用使用同一脚本加 `-Disable`，
+再点“热重载拓展”。详见 [增强层安装说明](extensions/README.md)。
+
+[`snow-day-glass-complete-v0.6.0.zip`](dist/snow-day-glass-complete-v0.6.0.zip)
+包含上述主题包、扩展和安装说明。这个完整分发包需要先解压，不能直接当作
+DreamSkin 主题包导入。
 
 重新构建时执行：
 
@@ -86,16 +102,18 @@ pwsh -File scripts/build-dreamskin.ps1
 ## 性能与显示
 
 - 侧栏、主区域、长对话容器均不使用常驻模糊；取消整栏悬停阴影和阴影过渡。
-- 项目选择器保留静态 4px 模糊；输入框和弹窗保留静态 6px 模糊。
-- 历史行和导航项保留上游自带的轻量悬停与选中反馈。Safe CSS 不提供侧栏行选择器，
-  ZIP 无法给每个历史行单独添加折射滤镜。
+- 正文、思考、工具结果、嵌套输出、输入框和菜单大容器全部不使用背景模糊。
+- 历史行、导航项、项目选项和菜单候选只在悬停或键盘选中时呈现透明渐变、
+  三层内高光和局部 7px 模糊。文字不使用 SVG 或位移滤镜，原生位置和操作按钮保持不变。
+- 不动画模糊或阴影，不监听鼠标移动，无定时器或全树扫描。增强层只有一张样式表，
+  以及监听三个根属性的观察器，用于主题切换和暂停时撤销效果。
 - 用 `art.taskMode: full` 让底图贯穿首页、对话和设置；主要内容区不再使用不透明底色。
 - 输入框使用 `0 3px 12px rgba(43,58,73,0.09)` 柔和阴影，阅读区保持有色透明底。
 
 DreamSkin 引擎固定使用 `background-size: cover` 铺满窗口，不同窗口比例可能裁剪图片边缘；
 ZIP 协议没有 `contain` 设置，不能保证在任意窗口比例中显示全部图片像素。
 原生 Codex 完整版使用 `contain`，保留完整构图；窗口比例不同时会留下浅色边带。
-测试范围与证据见 [QA-v0.5.0.md](docs/QA-v0.5.0.md)。
+测试范围与证据见 [QA-v0.6.0.md](docs/QA-v0.6.0.md)。
 
 ## 设计契约
 
@@ -104,4 +122,5 @@ ZIP 协议没有 `contain` 设置，不能保证在任意窗口比例中显示�
 - 装饰密度：balanced，去掉持续飘雪与整栏动态效果
 - 模式：浅色，匹配高亮度参考图
 - 玻璃效果：参考 [fu-liquiglass-skill](https://github.com/gerrywrittenhousea76-design/fu-liquiglass-skill)
-  的表面原语，以透明底、高光边和小范围静态模糊构成材质，悬停只短暂过渡颜色
+  的表面原语，以透亮渐变、弧面高光和局部模糊构成材质，悬停只短暂过渡颜色。
+  这是 iOS 风格的 CSS 材质近似，不包含 Apple 原生渲染器或全屏动态折射。

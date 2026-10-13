@@ -1,5 +1,19 @@
 # Changelog
 
+## 0.6.0 - 2026-10-13
+
+- Add an iOS-inspired glass companion through the official Codex++ extension API.
+  History, navigation and menu candidates receive local glass on pointer hover
+  and keyboard highlight.
+- Clear blur from reading, reasoning, tools, unmarked nested articles, detail
+  panels, composer and old home utility bars.
+- Keep the input's soft shadow; idle history rows and menu shells remain unfiltered.
+- Guard the companion against theme switches and pause; clean up its single
+  stylesheet and root-only observer on hot reload.
+- Pass 18 functional/lifecycle/performance fixture checks before and after
+  compacting generated CSS.
+- Deliver a Safe CSS ZIP separately from the complete ZIP plus user extension.
+
 ## 0.5.0 - 2026-10-13
 
 - Enable one continuous full-window background with `art.taskMode: full`.

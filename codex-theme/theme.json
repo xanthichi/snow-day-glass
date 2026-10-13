@@ -3,7 +3,7 @@
   "id": "snow-day-glass",
   "displayName": "Snow Day Glass",
   "description": "One continuous winter wallpaper across the app, lightweight glass surfaces and a soft composer shadow.",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "mode": "light",
   "css": "theme.css",
   "art": "assets/artwork.jpg",
@@ -15,12 +15,13 @@
     "modeReason": "The reference artwork is a high-luminance winter snow scene; dark mode would fight its brightness.",
     "artFocalPoint": "50% 50%",
     "textSafeRegion": "Local translucent surfaces behind text and controls.",
-    "contrastStrategy": "A single uncropped, contained wallpaper behind the whole app; dense reading surfaces, no sidebar-wide blur, small static glass controls.",
+    "contrastStrategy": "Unfiltered whole-app artwork and reading surfaces; local luminance tints with iOS-inspired edge highlights and glass on hovered or keyboard-highlighted choices only.",
     "allowedChanges": [
       "semantic palette",
       "native materials",
       "one whole-app wallpaper as explicitly requested",
-      "bounded glass surfaces and hover highlights",
+      "iOS-inspired glass only on hovered or keyboard-highlighted choices",
+      "remove all reading-area and composer blur",
       "soft composer shadow"
     ],
     "preserve": [
