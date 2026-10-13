@@ -31,8 +31,8 @@
     {
       "path": "theme.css",
       "mediaType": "text/css",
-      "bytes": 1862,
-      "sha256": "26bed845c213e40080f371fd64810f75664a17acf4b9fb69c04eeece0789da67"
+      "bytes": 1812,
+      "sha256": "637f29d6c39e23a43e102397b7caf69450b29cad38115235995bb9d35823abcb"
     },
     {
       "path": "background.png",
