@@ -24,8 +24,8 @@
   --lg-blur: 18px;
   --lg-saturation: 160%;
 
-  --ct-font-display: "Avenir Next", "PingFang SC", "Microsoft YaHei UI", sans-serif;
-  --ct-font-body: "Avenir Next", "PingFang SC", "Microsoft YaHei UI", sans-serif;
+  --ct-font-display: "Consolas", "LXGW WenKai GB", "Microsoft YaHei UI", sans-serif;
+  --ct-font-body: "Consolas", "LXGW WenKai GB", "Microsoft YaHei UI", sans-serif;
 
   color-scheme: light;
   --color-background-surface: var(--ct-canvas) !important;

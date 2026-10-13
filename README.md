@@ -54,3 +54,6 @@ npx tsx <skill-dir>/scripts/apply-theme.ts restore
 - Background scope: `home` only, with a readability veil over the text area
 - Decor density: rich (layered surfaces, full token sweep, ambient snowfall)
 - Mode: light, matching the high-luminance reference artwork
+- Typography: [Consolas](https://learn.microsoft.com/windows/fonts/font-collection)
+  for Latin text and digits, [LXGW WenKai GB](https://github.com/lxgw/LxgwWenKaiGB)
+  for Chinese, with system fallbacks
