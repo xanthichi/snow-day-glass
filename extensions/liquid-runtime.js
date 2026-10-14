@@ -160,6 +160,9 @@
     }
   });
   const bindComposer = node => {
+    if (node?.matches('[data-composer-utility-bar-variant="home"]')) {
+      node = node.querySelector("[data-composer-body]") || node;
+    }
     if (composer === node) return;
     resize.disconnect();
     clearRefraction(composer);

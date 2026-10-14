@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.10.0 - 2026-10-14
+
+- Paint the home input body rather than its layout root, so the glass filter
+  no longer covers the attached project/plugin rail.
+- Replace the attached rail's native tuck and overlap with an 8px gap while
+  preserving its layout padding and animations; translucent input and rail
+  edges no longer paint over each other.
+- Remove the embedded font-face data, WOFF2 asset and bundled font license.
+  Typography uses installed system fonts with local Consolas priority.
+
 ## 0.9.0 - 2026-10-14
 
 - Clear the actual sticky spacer gradient above the composer in addition to

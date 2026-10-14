@@ -172,6 +172,12 @@
 
   /* Keep the compact rail static; the composer owns SDF edge refraction. */
   :root:is([data-codexthemes-theme="snow-day-glass"], [data-snow-day-liquid-glass="__SNOW_VERSION__"])
+    [data-composer-rail][class*="_attached_"] {
+    --composer-rail-tuck: calc(var(--spacing) * -2) !important;
+    --composer-rail-overlap: 0px !important;
+  }
+
+  :root:is([data-codexthemes-theme="snow-day-glass"], [data-snow-day-liquid-glass="__SNOW_VERSION__"])
     [data-composer-rail-item] {
     background: var(--sg-surface-80) !important;
     background-image: none !important;
@@ -191,11 +197,16 @@
 
   /* A clear menu shell avoids stacking a 24px panel blur behind each option. */
   :root:is([data-codexthemes-theme="snow-day-glass"], [data-snow-day-liquid-glass="__SNOW_VERSION__"])
-    :is([role="menu"], [role="listbox"], [data-slot="popover-content"], [role="dialog"]) {
+    :is([role="menu"], [role="listbox"], [data-slot="popover-content"], [role="dialog"]):not(#codex-relay-balance-panel) {
     background: var(--sg-surface-80) !important;
     -webkit-backdrop-filter: none !important;
     backdrop-filter: none !important;
     box-shadow: 0 6px 18px rgba(43, 58, 73, 0.13), var(--sg-edge) !important;
+  }
+
+  :root:is([data-codexthemes-theme="snow-day-glass"], [data-snow-day-liquid-glass="__SNOW_VERSION__"])
+    #codex-relay-balance-panel[role="dialog"] {
+    background: rgba(24, 28, 35, 0.98) !important;
   }
 
   :root:is([data-codexthemes-theme="snow-day-glass"], [data-snow-day-liquid-glass="__SNOW_VERSION__"])
@@ -234,7 +245,9 @@
   }
 
   :root:is([data-codexthemes-theme="snow-day-glass"], [data-snow-day-liquid-glass="__SNOW_VERSION__"])
-    :is([data-ds-part="composer"], .composer-surface-chrome, [class*="_ComposerLayoutRoot_"], [data-composer-surface-variant][data-composer-radius-variant]) {
+    :is([data-ds-part="composer"], .composer-surface-chrome, [class*="_ComposerLayoutRoot_"], [data-composer-surface-variant][data-composer-radius-variant]):not([data-composer-utility-bar-variant="home"]),
+  :root:is([data-codexthemes-theme="snow-day-glass"], [data-snow-day-liquid-glass="__SNOW_VERSION__"])
+    [data-composer-utility-bar-variant="home"] [data-composer-body] {
     color: var(--sg-ink) !important;
     background: var(--sg-surface-80) !important;
     background-image: none !important;
@@ -247,6 +260,17 @@
     backdrop-filter: var(--sg-refraction, saturate(1.04)) !important;
     filter: none !important;
     box-shadow: 0 3px 12px rgba(43, 58, 73, 0.09), var(--sg-edge) !important;
+  }
+
+  /* The home root also contains the attached tool rail; paint only its body. */
+  :root:is([data-codexthemes-theme="snow-day-glass"], [data-snow-day-liquid-glass="__SNOW_VERSION__"])
+    [data-composer-utility-bar-variant="home"][data-composer-surface-variant] {
+    background: transparent !important;
+    background-image: none !important;
+    box-shadow: none !important;
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
+    margin-block-end: calc(var(--spacing) * 12) !important;
   }
 
   :root:is([data-codexthemes-theme="snow-day-glass"], [data-snow-day-liquid-glass="__SNOW_VERSION__"])
@@ -290,7 +314,15 @@
   }
 
   :root:is([data-codexthemes-theme="snow-day-glass"], [data-snow-day-liquid-glass="__SNOW_VERSION__"])
-    :is([data-ds-part="composer-toolbar"], [data-composer-footer-responsive], [class*="_ComposerLayoutFooter_"], [class*="_ComposerLayoutBody_"], [data-composer-home-utility-bar-position="above"], [class*="_homeUtilityBar_"], [class*="_ComposerHomeUtilityBar_"]) {
+    :is([data-ds-part="composer-toolbar"], [data-composer-footer-responsive], [class*="_ComposerLayoutFooter_"], [class*="_ComposerLayoutBody_"], [data-composer-home-utility-bar-position="above"], [class*="_homeUtilityBar_"], [class*="_ComposerHomeUtilityBar_"]):not([data-composer-body]) {
+    background: transparent !important;
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
+    box-shadow: none !important;
+  }
+
+  :root:is([data-codexthemes-theme="snow-day-glass"], [data-snow-day-liquid-glass="__SNOW_VERSION__"])
+    [data-composer-surface-variant]:not([data-composer-utility-bar-variant="home"]) [data-composer-body] {
     background: transparent !important;
     -webkit-backdrop-filter: none !important;
     backdrop-filter: none !important;

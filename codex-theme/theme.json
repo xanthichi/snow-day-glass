@@ -3,7 +3,7 @@
   "id": "snow-day-glass",
   "displayName": "Snow Day Glass",
   "description": "Winter artwork with explicit translucent reading surfaces, pure black sidebar text, blue action buttons and local liquid-glass refraction.",
-  "version": "0.9.0",
+  "version": "0.10.0",
   "mode": "light",
   "css": "theme.css",
   "art": "assets/artwork.jpg",
@@ -24,7 +24,9 @@
       "remove all reading-area and composer blur",
       "remove the footer white paint layer, soften the home utility rail and user bubbles, and clip history with the native scroll viewport",
       "fill the sidebar to the application bottom and round its right corners",
-      "soft composer shadow"
+      "soft composer shadow",
+      "separate attached tool rail paint from the input body",
+      "use installed system fonts without embedded font resources"
     ],
     "preserve": [
       "native geometry",

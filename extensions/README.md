@@ -4,7 +4,7 @@
 It supplies per-row and per-candidate SVG refraction that a DreamSkin ZIP cannot
 express, and clears upstream reasoning/tool/sticky blur.
 
-Import the separate `snow-day-glass-theme-v0.9.0.zip` through DreamSkin first.
+Import the separate `snow-day-glass-theme-v0.10.0.zip` through DreamSkin first.
 Then run:
 
 ```powershell
@@ -31,6 +31,9 @@ tracking. Child-list records are ignored unless a removed subtree contains the
 active composer; only then does it look up the replacement node and release the
 old resize observation and refraction map.
 Delegated pointer entry and focus changes prepare the current small target.
+The home composer binds refraction to its body only; its layout root stays clear.
+Attached tool rails have an 8px gap from the input paint instead of tucking
+under its rounded edge.
 
 Maps are cached with a limit of 16. The input is pinned and old hover references
 are released. The center is undisplaced; only rounded edges refract the backdrop.

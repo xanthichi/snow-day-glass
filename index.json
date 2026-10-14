@@ -4,9 +4,9 @@
     {
       "id": "snow-day-glass",
       "name": "Snow Day Glass",
-      "version": "0.9.0",
+      "version": "0.10.0",
       "author": "youyi",
-      "description": "Snow Day Glass 0.9.0: precise translucent white reading surfaces, black sidebar text, blue action buttons, clear file tabs, liquid hover glass and native scroll clipping. Background: pixiv.net/artworks/139476242.",
+      "description": "Snow Day Glass 0.10.0: nonoverlapping input and attached tool rail, local system fonts, translucent reading surfaces, blue action buttons and native scroll clipping. Background: pixiv.net/artworks/139476242.",
       "license": "主题配置与脚本按仓库 LICENSE（MIT）提供；背景图与字体授权见 themes/snow-day-glass/LICENSE.md",
       "source_url": "https://github.com/xanthichi/snow-day-glass",
       "tags": [
