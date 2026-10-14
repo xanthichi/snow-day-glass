@@ -4,7 +4,7 @@
 It supplies per-row and per-candidate SVG refraction that a DreamSkin ZIP cannot
 express, and clears upstream reasoning/tool/sticky blur.
 
-Import the separate `snow-day-glass-theme-v0.8.0.zip` through DreamSkin first.
+Import the separate `snow-day-glass-theme-v0.9.0.zip` through DreamSkin first.
 Then run:
 
 ```powershell
@@ -34,7 +34,10 @@ Delegated pointer entry and focus changes prepare the current small target.
 
 Maps are cached with a limit of 16. The input is pinned and old hover references
 are released. The center is undisplaced; only rounded edges refract the backdrop.
-The native footer's white paint and task rail are transparent glass, and the
+The native footer and scroll spacer gradients are transparent. Reading
+surfaces use single 80%, 78% or 70% white fills, and action controls are blue
+with white icons. The file pane owns its white fill while its Shadow DOM
+editor background stays clear. The
 native scroll viewport ends above the absolute footer so old messages cannot
 show through the glass input during fast scrolling.
 

@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.9.0 - 2026-10-14
+
+- Clear the actual sticky spacer gradient above the composer in addition to
+  the footer paint; preserve the native compositor scroll boundary.
+- Use single white fills: 80% for the sidebar, composer and floating/file
+  panels, 78% for both user and assistant chat surfaces, and 70% for tool cards.
+- Make sidebar text black and retain native hidden-action and disabled states.
+- Clear duplicated white backgrounds in file tabs and the Shadow DOM editor
+  without changing syntax highlighting or editor geometry.
+- Use blue backgrounds and white icons for send, stop, pause, resume and abort
+  controls, preserving ordinary attachment, permissions and edit controls.
+
 ## 0.8.0 - 2026-10-14
 
 - Replace frame-based transcript clipping with a native compositor viewport

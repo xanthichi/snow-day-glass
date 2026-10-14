@@ -2,8 +2,8 @@
   "schemaVersion": 1,
   "id": "snow-day-glass",
   "displayName": "Snow Day Glass",
-  "description": "One continuous winter wallpaper with native scroll clipping, a translucent project and plugin rail, liquid hover glass, and clearer text and icons.",
-  "version": "0.8.0",
+  "description": "Winter artwork with explicit translucent reading surfaces, pure black sidebar text, blue action buttons and local liquid-glass refraction.",
+  "version": "0.9.0",
   "mode": "light",
   "css": "theme.css",
   "art": "assets/artwork.jpg",
@@ -15,7 +15,7 @@
     "modeReason": "The reference artwork is a high-luminance winter snow scene; dark mode would fight its brightness.",
     "artFocalPoint": "50% 50%",
     "textSafeRegion": "Local translucent surfaces behind text and controls.",
-    "contrastStrategy": "Clear whole-app artwork, darker primary and secondary text, stronger sidebar icon contrast, a translucent utility rail, and native scroll clipping above the transparent composer.",
+    "contrastStrategy": "Single white fills: 80% on the sidebar, composer and panels, 78% on chat bubbles, and 70% on tool output. Black sidebar text and blue action buttons with white icons preserve working clarity.",
     "allowedChanges": [
       "semantic palette",
       "native materials",
@@ -39,7 +39,7 @@
   "palette": {
     "canvas": "#eef5fb",
     "surface": "rgba(255, 255, 255, 0.72)",
-    "raised": "#ffffff",
+    "raised": "rgba(255, 255, 255, 0.80)",
     "text": "#141a20",
     "muted": "#2b3946",
     "accent": "#e0782d",

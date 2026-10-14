@@ -1,7 +1,7 @@
 {
   "packageVersion": 1,
   "themeId": "snow-day-glass",
-  "version": "0.8.0",
+  "version": "0.9.0",
   "skinApiVersion": 1,
   "minClientVersion": "1.5.12",
   "platforms": [
@@ -19,7 +19,7 @@
   "license": "MIT-AND-Reference-Only",
   "provenance": {
     "aiGenerated": true,
-    "summary": "Background from https://www.pixiv.net/artworks/139476242. Native scroll clipping keeps messages above the transparent composer; local hover glass and upstream blur cleanup use the separate official Codex++ user extension."
+    "summary": "Background from https://www.pixiv.net/artworks/139476242. White reading surfaces use explicit 80%, 78% and 70% fills; the companion removes footer glow, preserves native scroll clipping and supplies liquid hover glass and blue action controls."
   },
   "files": [
     {
@@ -31,8 +31,8 @@
     {
       "path": "theme.css",
       "mediaType": "text/css",
-      "bytes": 2403,
-      "sha256": "2099317ca929dcd20389942932390326f934d99ed6ee270101241ba3a686947c"
+      "bytes": 2400,
+      "sha256": "2dc43830c5e02591c66bc0d9aa05cb9e9c91edefdf1367ef803b30380f56b34e"
     },
     {
       "path": "background.png",

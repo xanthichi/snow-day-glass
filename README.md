@@ -4,11 +4,11 @@
 清晰正文和柔和输入框阴影。原生 Codex 版本内嵌 [霞鹜文楷 GB](https://github.com/lxgw/LxgwWenKaiGB)
 字体；Codex++ ZIP 使用 DreamSkin 支持的系统字体。
 
-![边缘折射玻璃离线设计预览](previews/liquid-refraction-1440x900.png)
+![v0.9.0 离线设计预览](previews/design-preview-v0.9.0-1440x900.png)
 
 上图由真实上游 DreamSkin 渲染器在模拟工作区中生成，是设计预览。
-ZIP 通过真实 Rust 导入校验；增强层通过 18 项离线功能及生命周期检查，
-并已在用户的 Codex++ 窗口检查输入框折射、消息遮挡、侧栏几何和文字可读性。
+ZIP 使用上游 Rust 导入校验器和 Safe CSS 编译器检查。
+各版本的实机检查和离线回归范围见对应 QA 文档；用户聊天截图不会上传到仓库。
 
 ## 背景图片来源
 
@@ -70,8 +70,8 @@ npx tsx <skill-dir>/scripts/apply-theme.ts restore   # 恢复原生外观
 `dreamskin-package/` 按 DreamSkin Safe CSS 协议组织：`manifest.json`（含文件
 SHA-256）、`theme.json`、`theme.css`（`data-ds-part` 安全规则）、
 `background.png` 与 `LICENSE.txt`。导入使用
-[`snow-day-glass-theme-v0.8.0.zip`](dist/snow-day-glass-theme-v0.8.0.zip)，
-选中 v0.8.0 后应用。不要继续导入旧版 ZIP。
+[`snow-day-glass-theme-v0.9.0.zip`](dist/snow-day-glass-theme-v0.9.0.zip)，
+选中 v0.9.0 后应用，并更新同版本增强扩展。
 
 **完整的逐项悬停玻璃效果还需官方用户扩展**，因为主题 ZIP 的 Safe CSS 无法
 选择历史行、导航项或菜单候选，也无法清理上游工具输出的内部模糊。安装：
@@ -83,7 +83,7 @@ pwsh -File extensions/Install-Glass.ps1
 然后在 Codex++ 管理页点“热重载拓展”。禁用使用同一脚本加 `-Disable`，
 再点“热重载拓展”。详见 [增强层安装说明](extensions/README.md)。
 
-[`snow-day-glass-complete-v0.8.0.zip`](dist/snow-day-glass-complete-v0.8.0.zip)
+[`snow-day-glass-complete-v0.9.0.zip`](dist/snow-day-glass-complete-v0.9.0.zip)
 包含上述主题包、扩展和安装说明。这个完整分发包需要先解压，不能直接当作
 DreamSkin 主题包导入。
 
@@ -105,7 +105,12 @@ pwsh -File scripts/build-dreamskin.ps1
 - 正文、思考、工具结果、嵌套输出和菜单大容器不使用背景模糊。
 - 历史行、导航项、项目选项和菜单候选只在悬停或键盘选中时呈现透明渐变、
   内高光和 SVG 边缘折射。滤镜只处理背景，不扭曲文字。
-- 输入框使用透明玻璃，不再以 `0.94` 白底遮住底图；外层空的原生白色绘制层已清除。
+- 侧栏、输入框、菜单和右侧文件窗格使用 `rgba(255,255,255,0.80)` 白色填充；
+  用户和助手消息使用 `0.78`，工具输出使用 `0.70`。这些数值是白色层的 alpha，
+  不会改变文字、图标或原生隐藏操作的透明度。
+- 文件窗格由一层白色底承载，内部编辑器背景透明，保留语法高亮和编辑行为。
+- 侧栏文字纯黑；发送、停止、暂停、继续和中止使用蓝色底与白色图标。
+- 清除滚动占位层及输入区的原生白色渐变，保留输入框柔和阴影与边缘折射。
 - 原生滚动视口直接结束在输入区上沿，保留底部锚点和输入框点击区，快速滚动时
   不会再出现历史消息先穿透后消失。
 - 侧栏四角 `16px`，延伸至应用底部；顶部菜单及文字颜色更深。
@@ -117,7 +122,7 @@ pwsh -File scripts/build-dreamskin.ps1
 DreamSkin 引擎固定使用 `background-size: cover` 铺满窗口，不同窗口比例可能裁剪图片边缘；
 ZIP 协议没有 `contain` 设置，不能保证在任意窗口比例中显示全部图片像素。
 原生 Codex 完整版使用 `contain`，保留完整构图；窗口比例不同时会留下浅色边带。
-测试范围与证据见 [QA-v0.8.0.md](docs/QA-v0.8.0.md)。
+测试范围与证据见 [QA-v0.9.0.md](docs/QA-v0.9.0.md)。
 
 ## 设计契约
 
