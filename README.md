@@ -45,6 +45,33 @@ node scripts/validate.mjs
 
 ## 安装
 
+### 交给 AI 一键安装（Codex++）
+
+将下面这段指令发给能访问本机文件、终端和 Codex++ 管理界面的 AI：
+
+```text
+请为我安装或更新 Snow Day Glass 主题：
+https://github.com/xanthichi/snow-day-glass
+
+先读取仓库 README、extensions/README.md 和 dreamskin-package/manifest.json，
+按 manifest.version 获取 dist/snow-day-glass-theme-v<版本号>.zip，以及同版本的
+extensions/snow-day-liquid-glass.js、extensions/Install-Glass.ps1 和安装说明。
+
+将文件按仓库目录结构保存到同一个本地安装目录。
+我允许你下载、安装并应用该主题和增强扩展。通过我已安装的 Codex++ 官方管理
+入口导入主题 ZIP，选中并应用 Snow Day Glass；随后在本地安装目录中运行
+pwsh -File extensions/Install-Glass.ps1，
+再通过 Codex++ 的“热重载拓展”启用增强效果。更新已有扩展时保留脚本生成的备份。
+若下载的是 complete 完整分发包，先解压，再导入其中的 theme ZIP。
+
+保留其他主题、扩展和应用设置，使用官方导入与用户扩展接口完成安装。
+完成后确认主题版本、扩展加载状态、输入框与工具栏间距，以及中文显示正常。
+如果需要重启 Codex++，先征求我的同意；如果无法自动操作导入入口，请明确
+说明原因和最少需要我完成的操作，并准确报告已完成与尚未完成的步骤。
+```
+
+这段指令覆盖主题包与增强扩展的完整安装。手动安装步骤见下文。
+
 ### Codex 桌面（完整版）
 
 安装 [$codex-theme-creator](https://codexthemes.ai/SKILL.md) 后：
