@@ -15,7 +15,7 @@
 
 ## Results
 
-- Codex++ isolated Chromium fixture: **37/37 checks passed**, with zero page
+- Codex++ isolated Chromium fixture: **39/39 checks passed**, with zero page
   errors. The fixture covered home utility glass, user-message translucency,
   menu and history hover, keyboard focus, disabled choices, route cleanup,
   rebind, cache limits, click targets, scrolling, and narrow viewport fit.
