@@ -4,11 +4,11 @@
 清晰正文和柔和输入框阴影。原生 Codex 版本内嵌 [霞鹜文楷 GB](https://github.com/lxgw/LxgwWenKaiGB)
 字体；Codex++ ZIP 使用 DreamSkin 支持的系统字体。
 
-![候选项液态玻璃离线设计预览](previews/liquid-candidate-hover-1440x900.png)
+![边缘折射玻璃离线设计预览](previews/liquid-refraction-1440x900.png)
 
 上图由真实上游 DreamSkin 渲染器在模拟工作区中生成，是设计预览。
-ZIP 已通过真实 Rust 导入校验；增强层通过 18 项离线功能、生命周期和性能检查。
-新版尚未在用户的 Codex++ 窗口中应用和实测帧率。
+ZIP 通过真实 Rust 导入校验；增强层通过 18 项离线功能及生命周期检查，
+并已在用户的 Codex++ 窗口检查输入框折射、消息遮挡、侧栏几何和文字可读性。
 
 ## 背景图片来源
 
@@ -70,8 +70,8 @@ npx tsx <skill-dir>/scripts/apply-theme.ts restore   # 恢复原生外观
 `dreamskin-package/` 按 DreamSkin Safe CSS 协议组织：`manifest.json`（含文件
 SHA-256）、`theme.json`、`theme.css`（`data-ds-part` 安全规则）、
 `background.png` 与 `LICENSE.txt`。导入使用
-[`snow-day-glass-theme-v0.6.0.zip`](dist/snow-day-glass-theme-v0.6.0.zip)，
-选中 v0.6.0 后应用。不要继续导入旧版 ZIP。
+[`snow-day-glass-theme-v0.8.0.zip`](dist/snow-day-glass-theme-v0.8.0.zip)，
+选中 v0.8.0 后应用。不要继续导入旧版 ZIP。
 
 **完整的逐项悬停玻璃效果还需官方用户扩展**，因为主题 ZIP 的 Safe CSS 无法
 选择历史行、导航项或菜单候选，也无法清理上游工具输出的内部模糊。安装：
@@ -83,7 +83,7 @@ pwsh -File extensions/Install-Glass.ps1
 然后在 Codex++ 管理页点“热重载拓展”。禁用使用同一脚本加 `-Disable`，
 再点“热重载拓展”。详见 [增强层安装说明](extensions/README.md)。
 
-[`snow-day-glass-complete-v0.6.0.zip`](dist/snow-day-glass-complete-v0.6.0.zip)
+[`snow-day-glass-complete-v0.8.0.zip`](dist/snow-day-glass-complete-v0.8.0.zip)
 包含上述主题包、扩展和安装说明。这个完整分发包需要先解压，不能直接当作
 DreamSkin 主题包导入。
 
@@ -102,18 +102,22 @@ pwsh -File scripts/build-dreamskin.ps1
 ## 性能与显示
 
 - 侧栏、主区域、长对话容器均不使用常驻模糊；取消整栏悬停阴影和阴影过渡。
-- 正文、思考、工具结果、嵌套输出、输入框和菜单大容器全部不使用背景模糊。
+- 正文、思考、工具结果、嵌套输出和菜单大容器不使用背景模糊。
 - 历史行、导航项、项目选项和菜单候选只在悬停或键盘选中时呈现透明渐变、
-  三层内高光和局部 7px 模糊。文字不使用 SVG 或位移滤镜，原生位置和操作按钮保持不变。
-- 不动画模糊或阴影，不监听鼠标移动，无定时器或全树扫描。增强层只有一张样式表，
-  以及监听三个根属性的观察器，用于主题切换和暂停时撤销效果。
+  内高光和 SVG 边缘折射。滤镜只处理背景，不扭曲文字。
+- 输入框使用透明玻璃，不再以 `0.94` 白底遮住底图；外层空的原生白色绘制层已清除。
+- 原生滚动视口直接结束在输入区上沿，保留底部锚点和输入框点击区，快速滚动时
+  不会再出现历史消息先穿透后消失。
+- 侧栏四角 `16px`，延伸至应用底部；顶部菜单及文字颜色更深。
+- 位移贴图最多缓存 16 个，上限 `256x128`；只在目标或尺寸变化时生成，不跟踪鼠标移动，
+  不轮询。滚动不再触发脚本监听或 CSSOM 写入。
 - 用 `art.taskMode: full` 让底图贯穿首页、对话和设置；主要内容区不再使用不透明底色。
 - 输入框使用 `0 3px 12px rgba(43,58,73,0.09)` 柔和阴影，阅读区保持有色透明底。
 
 DreamSkin 引擎固定使用 `background-size: cover` 铺满窗口，不同窗口比例可能裁剪图片边缘；
 ZIP 协议没有 `contain` 设置，不能保证在任意窗口比例中显示全部图片像素。
 原生 Codex 完整版使用 `contain`，保留完整构图；窗口比例不同时会留下浅色边带。
-测试范围与证据见 [QA-v0.6.0.md](docs/QA-v0.6.0.md)。
+测试范围与证据见 [QA-v0.8.0.md](docs/QA-v0.8.0.md)。
 
 ## 设计契约
 
@@ -122,5 +126,9 @@ ZIP 协议没有 `contain` 设置，不能保证在任意窗口比例中显示�
 - 装饰密度：balanced，去掉持续飘雪与整栏动态效果
 - 模式：浅色，匹配高亮度参考图
 - 玻璃效果：参考 [fu-liquiglass-skill](https://github.com/gerrywrittenhousea76-design/fu-liquiglass-skill)
-  的表面原语，以透亮渐变、弧面高光和局部模糊构成材质，悬停只短暂过渡颜色。
-  这是 iOS 风格的 CSS 材质近似，不包含 Apple 原生渲染器或全屏动态折射。
+  的材质层次，并使用 [shuding/liquid-glass](https://github.com/shuding/liquid-glass)
+  的 SDF、Canvas 位移图与 SVG 折射思路，参考提交
+  `a2d2e847f793430e3409a52927af815a23f4d372`。
+- 原项目 MIT 许可保留在 [licenses/shuding-liquid-glass-MIT.txt](licenses/shuding-liquid-glass-MIT.txt)，
+  完整分发包也包含该许可。保留 Copyright (c) 2025 Shu Ding。
+- 这是浏览器中的边缘折射实现，不包含 Apple 原生渲染器或全屏动态折射。

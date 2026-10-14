@@ -4,9 +4,9 @@
     {
       "id": "snow-day-glass",
       "name": "Snow Day Glass",
-      "version": "0.6.0",
+      "version": "0.8.0",
       "author": "youyi",
-      "description": "Snow Day Glass 0.6.0: clear whole-app wallpaper and iOS-inspired hover glass. Import the DreamSkin ZIP and install the companion user extension for per-row and candidate hover. Background: pixiv.net/artworks/139476242.",
+      "description": "Snow Day Glass 0.8.0: native compositor scroll clipping, transparent glass task rail, clearer dark text and icons, SVG edge refraction, and a full-height rounded sidebar. Background: pixiv.net/artworks/139476242.",
       "license": "主题配置与脚本按仓库 LICENSE（MIT）提供；背景图与字体授权见 themes/snow-day-glass/LICENSE.md",
       "source_url": "https://github.com/xanthichi/snow-day-glass",
       "tags": [
@@ -17,7 +17,7 @@
         "anime"
       ],
       "theme": "themes/snow-day-glass/theme.json",
-      "theme_sha256": "97977ae05c24ae1e948da68e8bd4d128de26adfe1f7623ca215fec6f8aaacaba",
+      "theme_sha256": "e9bbb38bb44dbafd3ab1ee38d84a354b24d56c342d3696f23924db4f5062826d",
       "image": "themes/snow-day-glass/image.png",
       "image_sha256": "40d0382bca7e5c1941d23c9bbb9ac53b3ba416dcef29349ce49efd66a4c2f0d2",
       "preview": "themes/snow-day-glass/preview.jpg"

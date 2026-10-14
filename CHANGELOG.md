@@ -1,5 +1,34 @@
 # Changelog
 
+## 0.8.0 - 2026-10-14
+
+- Replace frame-based transcript clipping with a native compositor viewport
+  boundary above the absolute composer footer; fast reversed scrolling no longer
+  lets history briefly show through transparent glass.
+- Remove both native footer white paint variants and the compact task-rail
+  white layer; keep the rail translucent with a static glass edge.
+- Keep user message bubbles translucent instead of opaque white and darken
+  secondary text and sidebar icons with scoped semantic tokens.
+- Clear stale composer references when routes unmount the input, and make the
+  extension marker version derive from the package manifest during generation.
+- Remove unsupported DreamSkin `box-shadow` declarations from the base Safe CSS;
+  the companion extension owns the subtle composer shadow.
+
+## 0.7.0 - 2026-10-13
+
+- Replace hovered-choice blur with cached SDF/SVG edge refraction adapted from
+  shuding/liquid-glass; add the full upstream MIT license.
+- Clear the composer's empty white footer paint; use a transparent glass input.
+- Clip only the transcript above the input, preserving native scroll and footer
+  geometry so historical messages do not show through the composer.
+- Darken top menu text and running-status shimmer text.
+- Fill the sidebar to the application bottom; give its content panel four
+  16px corners and remove stacked white materials.
+- Bound refraction maps to 16, pin active maps, and release obsolete hover
+  nodes. Pointer changes and size changes build maps; scrolling does not.
+- Pass live readability, scroll-overlap and refraction pixel checks in Codex++,
+  plus the existing offline lifecycle and performance matrix.
+
 ## 0.6.0 - 2026-10-13
 
 - Add an iOS-inspired glass companion through the official Codex++ extension API.

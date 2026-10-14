@@ -1,10 +1,10 @@
 # Liquid Glass Companion
 
 `snow-day-liquid-glass.js` uses the official Codex++ user extension API v1.
-It supplies the per-row and per-candidate hover styles that a DreamSkin ZIP
-cannot express. It also clears the upstream reasoning/tool/sticky blur.
+It supplies per-row and per-candidate SVG refraction that a DreamSkin ZIP cannot
+express, and clears upstream reasoning/tool/sticky blur.
 
-Import the separate `snow-day-glass-theme-v0.6.0.zip` through DreamSkin first.
+Import the separate `snow-day-glass-theme-v0.8.0.zip` through DreamSkin first.
 Then run:
 
 ```powershell
@@ -23,11 +23,23 @@ pwsh -File extensions/Install-Glass.ps1 -Disable
 
 Select **Hot Reload Extensions** again. Only this companion's CSS is removed.
 
-The generated extension contains one style node and one observer restricted to
-three root attributes for theme switching and pause/resume. It has no subtree
-observer, polling, pointer tracking, animation loop or backend calls.
-The idle history rows and all reading surfaces have no blur; only the current
-hover/focus/highlighted choices receive a small 7px glass backdrop.
+The generated extension contains bounded SVG definitions and owned stylesheets.
+It observes three root attributes and engine part markers. Resize observers
+watch only the input geometry. The transcript boundary is native CSS, so the
+extension has no scroll listener, frame callback, polling, or pointer-move
+tracking. Child-list records are ignored unless a removed subtree contains the
+active composer; only then does it look up the replacement node and release the
+old resize observation and refraction map.
+Delegated pointer entry and focus changes prepare the current small target.
 
-`liquid-glass.css` is the readable source. Regenerate the companion with
+Maps are cached with a limit of 16. The input is pinned and old hover references
+are released. The center is undisplaced; only rounded edges refract the backdrop.
+The native footer's white paint and task rail are transparent glass, and the
+native scroll viewport ends above the absolute footer so old messages cannot
+show through the glass input during fast scrolling.
+
+`liquid-glass.css` and `liquid-runtime.js` are the readable sources. Regenerate with
 `node scripts/build-liquid-extension.mjs`.
+
+The SDF/SVG technique is adapted from shuding/liquid-glass. Its complete MIT
+license is in `licenses/shuding-liquid-glass-MIT.txt`.

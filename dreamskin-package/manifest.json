@@ -1,7 +1,7 @@
 {
   "packageVersion": 1,
   "themeId": "snow-day-glass",
-  "version": "0.6.0",
+  "version": "0.8.0",
   "skinApiVersion": 1,
   "minClientVersion": "1.5.12",
   "platforms": [
@@ -19,20 +19,20 @@
   "license": "MIT-AND-Reference-Only",
   "provenance": {
     "aiGenerated": true,
-    "summary": "Background from https://www.pixiv.net/artworks/139476242. Clear reading surfaces and local hover glass. Per-row liquid glass and clearing upstream tool blur use the separate official Codex++ user extension."
+    "summary": "Background from https://www.pixiv.net/artworks/139476242. Native scroll clipping keeps messages above the transparent composer; local hover glass and upstream blur cleanup use the separate official Codex++ user extension."
   },
   "files": [
     {
       "path": "theme.json",
       "mediaType": "application/json",
       "bytes": 738,
-      "sha256": "c85b63ac980acf87a73a3f7571735f752ffaf0aa8af52bf88cb828566145962b"
+      "sha256": "d248b6f70436a60b7d95ea2fd14502c54059b5a04cff3cad992e16b8cd8b3bb2"
     },
     {
       "path": "theme.css",
       "mediaType": "text/css",
-      "bytes": 2964,
-      "sha256": "3ee51df40ad5676342b80f47d0d90d1df9fe68a59c4f0b0495db8ff5ffe4eea0"
+      "bytes": 2403,
+      "sha256": "2099317ca929dcd20389942932390326f934d99ed6ee270101241ba3a686947c"
     },
     {
       "path": "background.png",
@@ -47,5 +47,5 @@
       "sha256": "6403bda300d733f7105e168130791762db48bef4fa4a00341af63ca8706e1e37"
     }
   ],
-  "createdAt": "2026-10-13T12:00:00Z"
+  "createdAt": "2026-10-14T12:00:00Z"
 }

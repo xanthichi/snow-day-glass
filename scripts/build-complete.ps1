@@ -20,8 +20,9 @@ $entries = [ordered]@{
     'extensions/snow-day-liquid-glass.js' = (Join-Path $repositoryRoot 'extensions\snow-day-liquid-glass.js')
     'extensions/Install-Glass.ps1' = (Join-Path $repositoryRoot 'extensions\Install-Glass.ps1')
     'extensions/README.md' = (Join-Path $repositoryRoot 'extensions\README.md')
-    'README.md' = (Join-Path $repositoryRoot 'docs\INSTALL-v0.6.0.md')
+    'README.md' = (Join-Path $repositoryRoot "docs\INSTALL-v$version.md")
     'LICENSE' = (Join-Path $repositoryRoot 'LICENSE')
+    'licenses/shuding-liquid-glass-MIT.txt' = (Join-Path $repositoryRoot 'licenses\shuding-liquid-glass-MIT.txt')
 }
 $output = Join-Path $dist "snow-day-glass-complete-v$version.zip"
 $stream = [System.IO.File]::Open($output, [System.IO.FileMode]::Create)

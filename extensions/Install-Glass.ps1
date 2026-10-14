@@ -40,4 +40,4 @@ if (Test-Path -LiteralPath $target) {
 }
 Copy-Item -LiteralPath $source -Destination $target -Force
 Write-Output "Installed $target"
-Write-Output 'Import the v0.6.0 DreamSkin ZIP, then use Hot Reload Extensions in Codex++.'
+Write-Output 'Apply the matching DreamSkin ZIP, then use Hot Reload Extensions in Codex++.'
