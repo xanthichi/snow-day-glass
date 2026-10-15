@@ -4,7 +4,7 @@
 It supplies per-row and per-candidate SVG refraction that a DreamSkin ZIP cannot
 express, and clears upstream reasoning/tool/sticky blur.
 
-Import the separate `snow-day-glass-theme-v0.11.0.zip` through DreamSkin first.
+Import the separate `snow-day-glass-theme-v0.12.0.zip` through DreamSkin first.
 Then run:
 
 ```powershell
@@ -35,7 +35,8 @@ The home composer binds refraction to its body only; its layout root stays clear
 Attached tool rails have an 8px gap from the input paint instead of tucking
 under its rounded edge.
 
-Codex++ and native settings pages own a single 80% white fill. Nested page,
+Codex++ and native settings pages own a single 80% white fill. Projects and
+Plugins page bodies also have a complete single white veil. Nested page,
 card and navigation paint is clear; local control states and white switch
 thumbs stay native. Additional sticky-header blur is removed without hiding
 headings, search or actions. The outer shell's 4px right inset is cleared so

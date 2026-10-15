@@ -4,9 +4,9 @@
     {
       "id": "snow-day-glass",
       "name": "Snow Day Glass",
-      "version": "0.11.0",
+      "version": "0.12.0",
       "author": "youyi",
-      "description": "Snow Day Glass 0.11.0: single 80% settings surfaces, clear sticky headers and a file pane flush with the outer border. Local fonts, hover glass, blue actions and native scroll clipping. Background: pixiv.net/artworks/139476242.",
+      "description": "Snow Day Glass 0.12.0 comparison A: full Projects and Plugins page veils, 80% opacity / 20% transparency. Local fonts, hover glass, native scrolling and flush file panes. Background: pixiv.net/artworks/139476242.",
       "license": "主题配置与脚本按仓库 LICENSE（MIT）提供；背景图与字体授权见 themes/snow-day-glass/LICENSE.md",
       "source_url": "https://github.com/xanthichi/snow-day-glass",
       "tags": [

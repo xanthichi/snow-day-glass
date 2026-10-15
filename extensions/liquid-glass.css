@@ -64,6 +64,28 @@
     backdrop-filter: none !important;
   }
 
+  /* Projects and Plugins each own a full-page veil, including empty space. */
+  :root:is([data-codexthemes-theme="snow-day-glass"], [data-snow-day-liquid-glass="__SNOW_VERSION__"])
+    [data-app-shell-focus-area="main"] > .bg-surface:has([data-app-shell-inline-page-header]),
+  :root:is([data-codexthemes-theme="snow-day-glass"], [data-snow-day-liquid-glass="__SNOW_VERSION__"])
+    [data-app-shell-focus-area="main"] [class~="@container/skills-grid"]:has([data-app-shell-inline-page-header]) {
+    background: var(--sg-surface-80) !important;
+  }
+
+  :root:is([data-codexthemes-theme="snow-day-glass"], [data-snow-day-liquid-glass="__SNOW_VERSION__"])
+    [data-app-shell-focus-area="main"] > .bg-surface:has([data-app-shell-inline-page-header])
+      [data-sticky]::before,
+  :root:is([data-codexthemes-theme="snow-day-glass"], [data-snow-day-liquid-glass="__SNOW_VERSION__"])
+    [data-app-shell-focus-area="main"] [class~="@container/skills-grid"]:has([data-app-shell-inline-page-header])
+      [data-sticky]::before {
+    background-color: var(--ct-canvas, var(--ds-bg, #eef5fb)) !important;
+    background-image: linear-gradient(var(--sg-surface-80), var(--sg-surface-80)), var(--ct-art, var(--dream-skin-art, none)) !important;
+    background-position: center, var(--ds-art-position, center) !important;
+    background-size: 100% 100%, var(--ct-art-size, cover) !important;
+    background-repeat: no-repeat !important;
+    background-attachment: fixed !important;
+  }
+
   /* Native settings paint the page once; section borders retain their states. */
   :root:is([data-codexthemes-theme="snow-day-glass"], [data-snow-day-liquid-glass="__SNOW_VERSION__"])
     [data-codex-history-swipe-page] > [class~="electron:bg-surface"] {

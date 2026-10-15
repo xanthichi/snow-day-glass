@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.12.0 - 2026-10-15
+
+- Comparison A: keep common white surfaces at 80% opacity / 20% transparency.
+- Extend the white veil across the full Projects and Plugins page bodies,
+  including empty space, without adding another white layer at their headings.
+- Preserve chat/output fills, native controls, hover glass and layout.
+
 ## 0.11.0 - 2026-10-15
 
 - Use one 80% white page fill for Codex++ settings, including its inline token

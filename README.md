@@ -4,11 +4,17 @@
 清晰正文和柔和输入框阴影。v0.10.0 起所有版本只使用本机系统字体，
 不携带字体文件或内嵌字体数据。
 
-![v0.11.0 离线设计预览](previews/design-preview-v0.11.0-1440x900.png)
+![v0.12.0 离线设计预览](previews/design-preview-v0.12.0-1440x900.png)
 
 上图由真实上游 DreamSkin 渲染器在模拟工作区中生成，是设计预览。
 ZIP 使用上游 Rust 导入校验器和 Safe CSS 编译器检查。
 各版本的实机检查和离线回归范围见对应 QA 文档；用户聊天截图不会上传到仓库。
+
+## 白色蒙版对比
+
+v0.12.0 是 A 版：共用白色蒙版为 **80% 不透明度 / 20% 透明度**，
+并将项目、插件页的正文和空白区域一起铺满。标题不重复叠加蒙版。
+聊天消息的 78% 与工具结果的 70% 不透明度保留原设定。
 
 ## 背景图片来源
 
@@ -95,8 +101,8 @@ npx tsx <skill-dir>/scripts/apply-theme.ts restore   # 恢复原生外观
 `dreamskin-package/` 按 DreamSkin Safe CSS 协议组织：`manifest.json`（含文件
 SHA-256）、`theme.json`、`theme.css`（`data-ds-part` 安全规则）、
 `background.png` 与 `LICENSE.txt`。导入使用
-[`snow-day-glass-theme-v0.11.0.zip`](dist/snow-day-glass-theme-v0.11.0.zip)，
-选中 v0.11.0 后应用，并更新同版本增强扩展。
+[`snow-day-glass-theme-v0.12.0.zip`](dist/snow-day-glass-theme-v0.12.0.zip)，
+选中 v0.12.0 后应用，并更新同版本增强扩展。
 
 **完整的逐项悬停玻璃效果还需官方用户扩展**，因为主题 ZIP 的 Safe CSS 无法
 选择历史行、导航项或菜单候选，也无法清理上游工具输出的内部模糊。安装：
@@ -108,7 +114,7 @@ pwsh -File extensions/Install-Glass.ps1
 然后在 Codex++ 管理页点“热重载拓展”。禁用使用同一脚本加 `-Disable`，
 再点“热重载拓展”。详见 [增强层安装说明](extensions/README.md)。
 
-[`snow-day-glass-complete-v0.11.0.zip`](dist/snow-day-glass-complete-v0.11.0.zip)
+[`snow-day-glass-complete-v0.12.0.zip`](dist/snow-day-glass-complete-v0.12.0.zip)
 包含上述主题包、扩展和安装说明。这个完整分发包需要先解压，不能直接当作
 DreamSkin 主题包导入。
 
@@ -155,7 +161,7 @@ pwsh -File scripts/build-dreamskin.ps1
 DreamSkin 引擎固定使用 `background-size: cover` 铺满窗口，不同窗口比例可能裁剪图片边缘；
 ZIP 协议没有 `contain` 设置，不能保证在任意窗口比例中显示全部图片像素。
 原生 Codex 完整版使用 `contain`，保留完整构图；窗口比例不同时会留下浅色边带。
-测试范围与证据见 [QA-v0.11.0.md](docs/QA-v0.11.0.md)。
+测试范围与证据见 [QA-v0.12.0.md](docs/QA-v0.12.0.md)。
 
 ## 设计契约
 
