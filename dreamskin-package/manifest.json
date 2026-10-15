@@ -1,7 +1,7 @@
 {
   "packageVersion": 1,
   "themeId": "snow-day-glass",
-  "version": "0.12.0",
+  "version": "0.13.0",
   "skinApiVersion": 1,
   "minClientVersion": "1.5.12",
   "platforms": [
@@ -19,7 +19,7 @@
   "license": "MIT-AND-Reference-Only",
   "provenance": {
     "aiGenerated": true,
-    "summary": "Background from https://www.pixiv.net/artworks/139476242. Comparison A adds complete Projects and Plugins page veils using 80% opaque white fill while preserving local glass, native scrolling, readable controls and prior chat/tool materials."
+    "summary": "Background from https://www.pixiv.net/artworks/139476242. Comparison B uses common white veils at 20% opacity / 80% transparency, including complete Projects and Plugins page bodies. Prior chat/tool materials, controls and geometry remain unchanged."
   },
   "files": [
     {
@@ -32,7 +32,7 @@
       "path": "theme.css",
       "mediaType": "text/css",
       "bytes": 2400,
-      "sha256": "2dc43830c5e02591c66bc0d9aa05cb9e9c91edefdf1367ef803b30380f56b34e"
+      "sha256": "10bedf47ae68d2364b4a1b7aaa487154d5fa33e53567e43fa85a69d54c989dde"
     },
     {
       "path": "background.png",

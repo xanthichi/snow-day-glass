@@ -4,9 +4,9 @@
     {
       "id": "snow-day-glass",
       "name": "Snow Day Glass",
-      "version": "0.12.0",
+      "version": "0.13.0",
       "author": "youyi",
-      "description": "Snow Day Glass 0.12.0 comparison A: full Projects and Plugins page veils, 80% opacity / 20% transparency. Local fonts, hover glass, native scrolling and flush file panes. Background: pixiv.net/artworks/139476242.",
+      "description": "Snow Day Glass 0.13.0 comparison B: common white veils at 20% opacity / 80% transparency, complete Projects and Plugins page coverage, local fonts and glass. Background: pixiv.net/artworks/139476242.",
       "license": "主题配置与脚本按仓库 LICENSE（MIT）提供；背景图与字体授权见 themes/snow-day-glass/LICENSE.md",
       "source_url": "https://github.com/xanthichi/snow-day-glass",
       "tags": [
@@ -17,7 +17,7 @@
         "anime"
       ],
       "theme": "themes/snow-day-glass/theme.json",
-      "theme_sha256": "c38f04f9a671f62791f22e455f549772cb1f4b5aecf59330657527808c020ac9",
+      "theme_sha256": "7e515f91c558d491a27d38cb8cce3e11457170ee103435c515f4c6f87a54b7e3",
       "image": "themes/snow-day-glass/image.png",
       "image_sha256": "40d0382bca7e5c1941d23c9bbb9ac53b3ba416dcef29349ce49efd66a4c2f0d2",
       "preview": "themes/snow-day-glass/preview.jpg"

@@ -20,7 +20,7 @@
     --color-token-text-primary: #141a20 !important;
     --color-token-text-secondary: #2b3946 !important;
     --color-token-text-tertiary: #344754 !important;
-    --sg-surface-80: rgba(255, 255, 255, 0.80);
+    --sg-surface-fill: rgba(255, 255, 255, 0.20);
     --sg-surface-78: rgba(255, 255, 255, 0.78);
     --sg-surface-70: rgba(255, 255, 255, 0.70);
     --sg-action: #2f6fed;
@@ -28,6 +28,11 @@
     --color-token-icon-foreground: #2b3946 !important;
     --color-codex-description: #2b3946 !important;
     --color-text-tertiary: #344754 !important;
+  }
+
+  :root:is([data-codexthemes-theme="snow-day-glass"], [data-snow-day-liquid-glass="__SNOW_VERSION__"])
+    :is([data-ds-part="home-hero"], [data-ds-part="project-list"]) {
+    background: var(--sg-surface-fill) !important;
   }
 
   :root:is([data-codexthemes-theme="snow-day-glass"], [data-snow-day-liquid-glass="__SNOW_VERSION__"])
@@ -58,7 +63,7 @@
   /* Keep the sticky heading readable with clear fill instead of extra blur. */
   :root:is([data-codexthemes-theme="snow-day-glass"], [data-snow-day-liquid-glass="__SNOW_VERSION__"])
     [data-app-shell-focus-area] [data-sticky]:not(:has([data-codex-composer-root]))::before {
-    background: var(--sg-surface-80) !important;
+    background: var(--sg-surface-fill) !important;
     background-image: none !important;
     -webkit-backdrop-filter: none !important;
     backdrop-filter: none !important;
@@ -69,7 +74,7 @@
     [data-app-shell-focus-area="main"] > .bg-surface:has([data-app-shell-inline-page-header]),
   :root:is([data-codexthemes-theme="snow-day-glass"], [data-snow-day-liquid-glass="__SNOW_VERSION__"])
     [data-app-shell-focus-area="main"] [class~="@container/skills-grid"]:has([data-app-shell-inline-page-header]) {
-    background: var(--sg-surface-80) !important;
+    background: var(--sg-surface-fill) !important;
   }
 
   :root:is([data-codexthemes-theme="snow-day-glass"], [data-snow-day-liquid-glass="__SNOW_VERSION__"])
@@ -79,7 +84,7 @@
     [data-app-shell-focus-area="main"] [class~="@container/skills-grid"]:has([data-app-shell-inline-page-header])
       [data-sticky]::before {
     background-color: var(--ct-canvas, var(--ds-bg, #eef5fb)) !important;
-    background-image: linear-gradient(var(--sg-surface-80), var(--sg-surface-80)), var(--ct-art, var(--dream-skin-art, none)) !important;
+    background-image: linear-gradient(var(--sg-surface-fill), var(--sg-surface-fill)), var(--ct-art, var(--dream-skin-art, none)) !important;
     background-position: center, var(--ds-art-position, center) !important;
     background-size: 100% 100%, var(--ct-art-size, cover) !important;
     background-repeat: no-repeat !important;
@@ -89,7 +94,7 @@
   /* Native settings paint the page once; section borders retain their states. */
   :root:is([data-codexthemes-theme="snow-day-glass"], [data-snow-day-liquid-glass="__SNOW_VERSION__"])
     [data-codex-history-swipe-page] > [class~="electron:bg-surface"] {
-    background: var(--sg-surface-80) !important;
+    background: var(--sg-surface-fill) !important;
   }
 
   :root:is([data-codexthemes-theme="snow-day-glass"], [data-snow-day-liquid-glass="__SNOW_VERSION__"])
@@ -116,8 +121,8 @@
     --codex-plus-settings-card-bg: transparent !important;
     --codex-plus-nav-bg: transparent !important;
     --codex-plus-settings-page-bg: #ffffff !important;
-    --codex-plus-bg-elevated: var(--sg-surface-80) !important;
-    background: var(--sg-surface-80) !important;
+    --codex-plus-bg-elevated: var(--sg-surface-fill) !important;
+    background: var(--sg-surface-fill) !important;
     background-image: none !important;
   }
 
@@ -149,7 +154,7 @@
     --color-token-text-secondary: #000000 !important;
     --color-token-text-tertiary: #000000 !important;
     color: #000000 !important;
-    background: var(--sg-surface-80) !important;
+    background: var(--sg-surface-fill) !important;
     background-image: none !important;
     border-radius: 16px !important;
     box-shadow: var(--sg-edge) !important;
@@ -258,7 +263,7 @@
 
   :root:is([data-codexthemes-theme="snow-day-glass"], [data-snow-day-liquid-glass="__SNOW_VERSION__"])
     [data-composer-rail-item] {
-    background: var(--sg-surface-80) !important;
+    background: var(--sg-surface-fill) !important;
     background-image: none !important;
     border-radius: 14px !important;
     border-color: transparent !important;
@@ -277,7 +282,7 @@
   /* A clear menu shell avoids stacking a 24px panel blur behind each option. */
   :root:is([data-codexthemes-theme="snow-day-glass"], [data-snow-day-liquid-glass="__SNOW_VERSION__"])
     :is([role="menu"], [role="listbox"], [data-slot="popover-content"], [role="dialog"], .codex-session-action-tooltip, .codex-delete-toast):not(#codex-relay-balance-panel):not(.codex-plus-page-overlay > .codex-plus-modal-content) {
-    background: var(--sg-surface-80) !important;
+    background: var(--sg-surface-fill) !important;
     -webkit-backdrop-filter: none !important;
     backdrop-filter: none !important;
     box-shadow: 0 6px 18px rgba(43, 58, 73, 0.13), var(--sg-edge) !important;
@@ -285,7 +290,7 @@
 
   :root:is([data-codexthemes-theme="snow-day-glass"], [data-snow-day-liquid-glass="__SNOW_VERSION__"])
     button[class~="group/scroll-to-bottom"] {
-    background: var(--sg-surface-80) !important;
+    background: var(--sg-surface-fill) !important;
   }
 
   :root:is([data-codexthemes-theme="snow-day-glass"], [data-snow-day-liquid-glass="__SNOW_VERSION__"])
@@ -295,7 +300,7 @@
 
   :root:is([data-codexthemes-theme="snow-day-glass"], [data-snow-day-liquid-glass="__SNOW_VERSION__"])
     [data-summary-panel-variant="summary"] {
-    background: var(--sg-surface-80) !important;
+    background: var(--sg-surface-fill) !important;
     background-image: none !important;
     color: #141a20 !important;
   }
@@ -312,13 +317,13 @@
      surfaces through their native Shadow DOM variables. */
   :root:is([data-codexthemes-theme="snow-day-glass"], [data-snow-day-liquid-glass="__SNOW_VERSION__"])
     [data-app-shell-tabs] > [data-app-shell-compact-page-gutter] {
-    --app-shell-panel-background: var(--sg-surface-80) !important;
-    background: var(--sg-surface-80) !important;
+    --app-shell-panel-background: var(--sg-surface-fill) !important;
+    background: var(--sg-surface-fill) !important;
   }
 
   :root:is([data-codexthemes-theme="snow-day-glass"], [data-snow-day-liquid-glass="__SNOW_VERSION__"])
     [data-app-shell-tab-controller] [data-tab-id] > [class*="_SelectedSurface_"] {
-    background: var(--sg-surface-80) !important;
+    background: var(--sg-surface-fill) !important;
   }
 
   :root:is([data-codexthemes-theme="snow-day-glass"], [data-snow-day-liquid-glass="__SNOW_VERSION__"])
@@ -333,13 +338,13 @@
   :root:is([data-codexthemes-theme="snow-day-glass"], [data-snow-day-liquid-glass="__SNOW_VERSION__"])
     [data-composer-utility-bar-variant="home"] [data-composer-body] {
     color: var(--sg-ink) !important;
-    background: var(--sg-surface-80) !important;
+    background: var(--sg-surface-fill) !important;
     background-image: none !important;
-    --composer-layout-surface-background: var(--sg-surface-80) !important;
-    --color-background-composer-surface: var(--sg-surface-80) !important;
-    --composer-background-color: var(--sg-surface-80) !important;
-    --color-background-panel: var(--sg-surface-80) !important;
-    --color-token-input-background: var(--sg-surface-80) !important;
+    --composer-layout-surface-background: var(--sg-surface-fill) !important;
+    --color-background-composer-surface: var(--sg-surface-fill) !important;
+    --composer-background-color: var(--sg-surface-fill) !important;
+    --color-background-panel: var(--sg-surface-fill) !important;
+    --color-token-input-background: var(--sg-surface-fill) !important;
     -webkit-backdrop-filter: var(--sg-refraction, saturate(1.04)) !important;
     backdrop-filter: var(--sg-refraction, saturate(1.04)) !important;
     filter: none !important;

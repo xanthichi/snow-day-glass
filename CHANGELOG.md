@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.13.0 - 2026-10-15
+
+- Comparison B: change common white fills to 20% opacity / 80% transparency.
+- Keep A's full Projects and Plugins page veils and artwork-aligned sticky
+  header materials, which occlude scrolled text without blur or stacked white.
+- Preserve explicit chat alpha 0.78, output alpha 0.70, semantic icon/switch
+  whites, hover highlights, native controls and layout.
+- Retain A's separately pushed v0.12.0 packages for comparison.
+
 ## 0.12.0 - 2026-10-15
 
 - Comparison A: keep common white surfaces at 80% opacity / 20% transparency.

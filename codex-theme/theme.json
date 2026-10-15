@@ -2,8 +2,8 @@
   "schemaVersion": 1,
   "id": "snow-day-glass",
   "displayName": "Snow Day Glass",
-  "description": "Winter artwork with explicit translucent reading surfaces, pure black sidebar text, blue action buttons and local liquid-glass refraction.",
-  "version": "0.12.0",
+  "description": "Comparison B: winter artwork with common white veils at 20% opacity / 80% transparency, complete Projects and Plugins page coverage and local liquid-glass refraction.",
+  "version": "0.13.0",
   "mode": "light",
   "css": "theme.css",
   "art": "assets/artwork.jpg",
@@ -15,7 +15,7 @@
     "modeReason": "The reference artwork is a high-luminance winter snow scene; dark mode would fight its brightness.",
     "artFocalPoint": "50% 50%",
     "textSafeRegion": "Local translucent surfaces behind text and controls.",
-    "contrastStrategy": "Single white fills: 80% on the sidebar, composer and panels, 78% on chat bubbles, and 70% on tool output. Black sidebar text and blue action buttons with white icons preserve working clarity.",
+    "contrastStrategy": "Comparison B: common white fill at 20% opacity / 80% transparency on sidebar, composer, panels and full Projects/Plugins pages; preserve 78% chat and 70% tool output, dark labels and blue action buttons.",
     "allowedChanges": [
       "semantic palette",
       "native materials",
@@ -27,10 +27,11 @@
       "soft composer shadow",
       "separate attached tool rail paint from the input body",
       "use installed system fonts without embedded font resources",
-      "replace opaque settings page and card paints with one 80% white fill",
+      "replace opaque settings page and card paints with one common white fill",
       "remove the extra sticky page-header backdrop blur",
       "extend the right file pane to the outer application border",
-      "cover the complete Projects and Plugins pages with the common white veil"
+      "cover the complete Projects and Plugins pages with the common white veil",
+      "compare 80% transparency with the separately committed 80% opacity version"
     ],
     "preserve": [
       "native geometry",
@@ -45,7 +46,7 @@
   "palette": {
     "canvas": "#eef5fb",
     "surface": "rgba(255, 255, 255, 0.72)",
-    "raised": "rgba(255, 255, 255, 0.80)",
+    "raised": "rgba(255, 255, 255, 0.20)",
     "text": "#141a20",
     "muted": "#2b3946",
     "accent": "#e0782d",
