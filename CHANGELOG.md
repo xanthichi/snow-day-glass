@@ -1,5 +1,19 @@
 # Changelog
 
+## 0.11.0 - 2026-10-15
+
+- Use one 80% white page fill for Codex++ settings, including its inline token
+  island, navigation and cards; keep switch, selection and focus states intact.
+- Hide only the covered native page while the Codex++ page is open so artwork
+  shows through instead of underlying text; closing restores its layout.
+- Make native settings pages translucent and clear their nested card paint.
+- Remove DreamSkin's additional sticky-header backdrop blur while preserving
+  native headings, search, actions and sticky behavior.
+- Clear the verified 4px outer right inset so file panes reach the window edge
+  without overriding pane dimensions or resizing.
+- Give independent menus, action tooltips, notifications and the scroll-to-bottom
+  button the same 80% white material.
+
 ## 0.10.0 - 2026-10-14
 
 - Paint the home input body rather than its layout root, so the glass filter

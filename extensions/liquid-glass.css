@@ -48,10 +48,67 @@
     transition: none !important;
   }
 
-  /* One surface owner; the native flex row fills the extra four bottom pixels. */
+  /* The native flex row fills the outer shell's right and bottom insets. */
   :root:is([data-codexthemes-theme="snow-day-glass"], [data-snow-day-liquid-glass="__SNOW_VERSION__"])
     [data-app-shell-page-surface][data-app-shell-application-menu-bar] {
+    padding-inline-end: 0 !important;
     padding-block-end: 0 !important;
+  }
+
+  /* Keep the sticky heading readable with clear fill instead of extra blur. */
+  :root:is([data-codexthemes-theme="snow-day-glass"], [data-snow-day-liquid-glass="__SNOW_VERSION__"])
+    [data-app-shell-focus-area] [data-sticky]:not(:has([data-codex-composer-root]))::before {
+    background: var(--sg-surface-80) !important;
+    background-image: none !important;
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
+  }
+
+  /* Native settings paint the page once; section borders retain their states. */
+  :root:is([data-codexthemes-theme="snow-day-glass"], [data-snow-day-liquid-glass="__SNOW_VERSION__"])
+    [data-codex-history-swipe-page] > [class~="electron:bg-surface"] {
+    background: var(--sg-surface-80) !important;
+  }
+
+  :root:is([data-codexthemes-theme="snow-day-glass"], [data-snow-day-liquid-glass="__SNOW_VERSION__"])
+    .group\/settings {
+    --color-background-panel: transparent !important;
+  }
+
+  :root:is([data-codexthemes-theme="snow-day-glass"], [data-snow-day-liquid-glass="__SNOW_VERSION__"])
+    .group\/settings button[data-state][class~="bg-surface"] {
+    --color-surface: transparent !important;
+  }
+
+  /* Override the settings page's inline token island, not switch/icon opacity.
+     settings-page-bg is also an install-button foreground and must stay white. */
+  :root:is([data-codexthemes-theme="snow-day-glass"], [data-snow-day-liquid-glass="__SNOW_VERSION__"])[data-codex-plus-page-open]:has(> body > .codex-plus-page-overlay)
+    :is([data-app-shell-main-surface], [data-app-shell-titlebar], aside[data-app-shell-focus-area="right-panel"], aside.app-shell-left-panel [data-slate-sidebar-content]) {
+    visibility: hidden !important;
+  }
+
+  :root:is([data-codexthemes-theme="snow-day-glass"], [data-snow-day-liquid-glass="__SNOW_VERSION__"])
+    .codex-plus-page-overlay {
+    --codex-plus-bg-primary: transparent !important;
+    --codex-plus-bg-secondary: transparent !important;
+    --codex-plus-settings-card-bg: transparent !important;
+    --codex-plus-nav-bg: transparent !important;
+    --codex-plus-settings-page-bg: #ffffff !important;
+    --codex-plus-bg-elevated: var(--sg-surface-80) !important;
+    background: var(--sg-surface-80) !important;
+    background-image: none !important;
+  }
+
+  :root:is([data-codexthemes-theme="snow-day-glass"], [data-snow-day-liquid-glass="__SNOW_VERSION__"])
+    .codex-plus-page-overlay > .codex-plus-modal-content {
+    background: transparent !important;
+    background-image: none !important;
+    box-shadow: none !important;
+  }
+
+  :root:is([data-codexthemes-theme="snow-day-glass"], [data-snow-day-liquid-glass="__SNOW_VERSION__"])
+    .codex-plus-page-overlay .codex-plus-page-search-input:focus {
+    background: transparent !important;
   }
 
   :root:is([data-codexthemes-theme="snow-day-glass"], [data-snow-day-liquid-glass="__SNOW_VERSION__"])
@@ -197,11 +254,16 @@
 
   /* A clear menu shell avoids stacking a 24px panel blur behind each option. */
   :root:is([data-codexthemes-theme="snow-day-glass"], [data-snow-day-liquid-glass="__SNOW_VERSION__"])
-    :is([role="menu"], [role="listbox"], [data-slot="popover-content"], [role="dialog"]):not(#codex-relay-balance-panel) {
+    :is([role="menu"], [role="listbox"], [data-slot="popover-content"], [role="dialog"], .codex-session-action-tooltip, .codex-delete-toast):not(#codex-relay-balance-panel):not(.codex-plus-page-overlay > .codex-plus-modal-content) {
     background: var(--sg-surface-80) !important;
     -webkit-backdrop-filter: none !important;
     backdrop-filter: none !important;
     box-shadow: 0 6px 18px rgba(43, 58, 73, 0.13), var(--sg-edge) !important;
+  }
+
+  :root:is([data-codexthemes-theme="snow-day-glass"], [data-snow-day-liquid-glass="__SNOW_VERSION__"])
+    button[class~="group/scroll-to-bottom"] {
+    background: var(--sg-surface-80) !important;
   }
 
   :root:is([data-codexthemes-theme="snow-day-glass"], [data-snow-day-liquid-glass="__SNOW_VERSION__"])

@@ -1,7 +1,7 @@
 {
   "packageVersion": 1,
   "themeId": "snow-day-glass",
-  "version": "0.10.0",
+  "version": "0.11.0",
   "skinApiVersion": 1,
   "minClientVersion": "1.5.12",
   "platforms": [
@@ -19,7 +19,7 @@
   "license": "MIT-AND-Reference-Only",
   "provenance": {
     "aiGenerated": true,
-    "summary": "Background from https://www.pixiv.net/artworks/139476242. White reading surfaces use explicit 80%, 78% and 70% fills; the companion removes footer glow, preserves native scroll clipping and supplies liquid hover glass and blue action controls."
+    "summary": "Background from https://www.pixiv.net/artworks/139476242. The companion replaces opaque settings layers with a single 80% white fill, removes sticky header blur, closes the right outer gutter and preserves native scrolling, local hover refraction and blue controls."
   },
   "files": [
     {
