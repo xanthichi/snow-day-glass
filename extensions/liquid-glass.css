@@ -1,6 +1,15 @@
 /* Refraction follows Shu Ding's SDF/SVG material. Keep reading surfaces clear. */
 @layer dreamskin-community {
   :root:is([data-codexthemes-theme="snow-day-glass"], [data-snow-day-liquid-glass="__SNOW_VERSION__"]) {
+    --sg-font: "Consolas", "Microsoft YaHei", "Microsoft YaHei UI", monospace;
+    --font-sans: var(--sg-font) !important;
+    --font-sans-default: var(--sg-font) !important;
+    --font-openai-sans: var(--sg-font) !important;
+    --default-font-family: var(--sg-font) !important;
+    --font-mono: var(--sg-font) !important;
+    --font-code: var(--sg-font) !important;
+    --font-code-family: var(--sg-font) !important;
+    font-family: var(--sg-font) !important;
     --sg-ink: #141a20;
     --sg-tint: rgba(255, 255, 255, 0.22);
     --sg-selected: rgba(239, 249, 255, 0.66);
@@ -29,6 +38,12 @@
     --color-token-icon-foreground: #2b3946 !important;
     --color-codex-description: #2b3946 !important;
     --color-text-tertiary: #344754 !important;
+  }
+
+  /* Consolas supplies Latin/digits; Chinese falls back to local Microsoft YaHei. */
+  :root:is([data-codexthemes-theme="snow-day-glass"], [data-snow-day-liquid-glass="__SNOW_VERSION__"])
+    :is(body, button, input, select, textarea) {
+    font-family: var(--sg-font) !important;
   }
 
   :root:is([data-codexthemes-theme="snow-day-glass"], [data-snow-day-liquid-glass="__SNOW_VERSION__"])

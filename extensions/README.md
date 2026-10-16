@@ -4,7 +4,12 @@
 It supplies per-row and per-candidate SVG refraction that a DreamSkin ZIP cannot
 express, and clears upstream reasoning/tool/sticky blur.
 
-Import the separate `snow-day-glass-theme-v0.14.0.zip` through DreamSkin first.
+v0.15.0 keeps v0.14.0 materials and uses local Consolas for Latin/digits,
+with Microsoft YaHei for Chinese. Native font tokens and form controls use
+the same stack. No fonts are embedded; the named stack requires this companion
+because the base ZIP accepts only generic font families.
+
+Import the separate `snow-day-glass-theme-v0.15.0.zip` through DreamSkin first.
 Then run:
 
 ```powershell

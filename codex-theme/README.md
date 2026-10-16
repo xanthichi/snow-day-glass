@@ -1,6 +1,6 @@
 # Snow Day Glass
 
-Created with the canonical CodexThemes theme creator. Version 0.14.0.
+Created with the canonical CodexThemes theme creator. Version 0.15.0.
 
 One continuous, uncropped winter artwork across the app. Reading surfaces use
 50%, 78% and 70% white fills with no blur, black sidebar text and blue action
@@ -17,8 +17,9 @@ without its native persistent blur.
 The companion skips SDF gradients for zero-displacement pixels and reuses
 composer resize measurements without reducing refraction resolution or strength.
 
-Typography uses local Consolas, Microsoft YaHei UI and Segoe UI, with system
-fallbacks. No font files or font data are embedded. Artwork supplied by the user from
+Based on v0.14.0; only typography changes. Latin/digits use local Consolas,
+with Microsoft YaHei for Chinese, then Microsoft YaHei UI and system monospace.
+No font files or font data are embedded. Artwork supplied by the user from
 https://www.pixiv.net/artworks/139476242.
 
 Codex++ uses a separate official user extension for local SDF refraction and

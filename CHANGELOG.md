@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.15.0 - 2026-10-16
+
+- Base the revision on v0.14.0, without the unselected-sidebar white-layer change.
+- Use installed Consolas for Latin/digits and Microsoft YaHei for Chinese via
+  shared native font tokens and the companion. No fonts are bundled.
+- Preserve v0.14.0 materials, geometry, glass and optimized runtime.
+- Save and package only; do not import or apply this version to Codex++.
+
 ## 0.14.0 - 2026-10-16
 
 - Set common white fill to 50% opacity / 50% transparency; retain A and B.
