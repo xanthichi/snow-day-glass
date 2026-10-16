@@ -4,7 +4,7 @@
 It supplies per-row and per-candidate SVG refraction that a DreamSkin ZIP cannot
 express, and clears upstream reasoning/tool/sticky blur.
 
-Import the separate `snow-day-glass-theme-v0.13.0.zip` through DreamSkin first.
+Import the separate `snow-day-glass-theme-v0.14.0.zip` through DreamSkin first.
 Then run:
 
 ```powershell
@@ -35,8 +35,9 @@ The home composer binds refraction to its body only; its layout root stays clear
 Attached tool rails have an 8px gap from the input paint instead of tucking
 under its rounded edge.
 
-Comparison B uses 20% opacity / 80% transparency for common white fills;
-comparison A v0.12.0 uses 80% opacity / 20% transparency. Switch both the theme
+The current common white fill uses 50% opacity / 50% transparency.
+The top application titlebar separately uses 20% opacity / 80% transparency.
+B v0.13.0 uses 20% opacity; A v0.12.0 uses 80% opacity. Switch both the theme
 ZIP and companion together to compare them. Codex++ and native settings own
 a single common white fill. Projects and
 Plugins page bodies also have a complete single white veil. Nested page,
@@ -50,11 +51,20 @@ its geometry; closing the page restores it, avoiding text ghosting through glass
 Maps are cached with a limit of 16. The input is pinned and old hover references
 are released. The center is undisplaced; only rounded edges refract the backdrop.
 The native footer and scroll spacer gradients are transparent. Reading
-surfaces use single 20%, 78% or 70% white fills in B, and action controls are blue
+surfaces use single 50%, 78% or 70% white fills, and action controls are blue
 with white icons. The file pane owns its white fill while its Shadow DOM
 editor background stays clear. The
 native scroll viewport ends above the absolute footer so old messages cannot
 show through the glass input during fast scrolling.
+
+Zero-displacement pixels skip SDF gradient/normal work while retaining exactly
+the same map bytes. Resize preparation reuses its measured rectangle and does
+not prepare the initial composer twice. Map dimensions, strength, cache limits
+and event/observer architecture remain unchanged.
+The independent native 90% titlebar paint and blur, newer 96% settings control
+paint, settings search/input/footer paint and nested summary-header white are
+cleared at their owning component roots. Sticky settings headings reconstruct
+the same wallpaper and veil so scrolled text remains occluded.
 
 `liquid-glass.css` and `liquid-runtime.js` are the readable sources. Regenerate with
 `node scripts/build-liquid-extension.mjs`.

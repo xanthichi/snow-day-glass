@@ -4,7 +4,7 @@
 清晰正文和柔和输入框阴影。v0.10.0 起所有版本只使用本机系统字体，
 不携带字体文件或内嵌字体数据。
 
-![v0.13.0 离线设计预览](previews/design-preview-v0.13.0-1440x900.png)
+![v0.14.0 离线设计预览](previews/design-preview-v0.14.0-1440x900.png)
 
 上图由真实上游 DreamSkin 渲染器在模拟工作区中生成，是设计预览。
 ZIP 使用上游 Rust 导入校验器和 Safe CSS 编译器检查。
@@ -16,11 +16,13 @@ ZIP 使用上游 Rust 导入校验器和 Safe CSS 编译器检查。
 | --- | --- | --- | --- |
 | A · v0.12.0 | 80% | 20% | [A 完整 ZIP](dist/snow-day-glass-complete-v0.12.0.zip) |
 | B · v0.13.0 | 20% | 80% | [B 完整 ZIP](dist/snow-day-glass-complete-v0.13.0.zip) |
+| 当前 · v0.14.0 | 50% | 50% | [当前完整 ZIP](dist/snow-day-glass-complete-v0.14.0.zip) |
 
-两版都将项目、插件页的正文和空白区域一起铺满，保留相同布局与玻璃效果。
+各版都将项目、插件页的正文和空白区域一起铺满，保留相同布局与玻璃效果。
 标题使用对齐全窗背景的独立底层，挡住滚动文字，避免重复叠白。
 聊天消息的 78% 与工具结果的 70% 不透明度保留原设定。
-当前默认是 B。切换比较时，同时导入所选版本的主题 ZIP 并安装同版本增强扩展。
+当前默认是 50%。切换比较时，同时导入所选版本的主题 ZIP 并安装同版本增强扩展。
+最上方应用标题栏单独使用 **80% 透明度 / 20% 不透明度**，不使用背景模糊。
 
 ## 背景图片来源
 
@@ -107,8 +109,8 @@ npx tsx <skill-dir>/scripts/apply-theme.ts restore   # 恢复原生外观
 `dreamskin-package/` 按 DreamSkin Safe CSS 协议组织：`manifest.json`（含文件
 SHA-256）、`theme.json`、`theme.css`（`data-ds-part` 安全规则）、
 `background.png` 与 `LICENSE.txt`。导入使用
-[`snow-day-glass-theme-v0.13.0.zip`](dist/snow-day-glass-theme-v0.13.0.zip)，
-选中 v0.13.0 后应用，并更新同版本增强扩展。
+[`snow-day-glass-theme-v0.14.0.zip`](dist/snow-day-glass-theme-v0.14.0.zip)，
+选中 v0.14.0 后应用，并更新同版本增强扩展。
 
 **完整的逐项悬停玻璃效果还需官方用户扩展**，因为主题 ZIP 的 Safe CSS 无法
 选择历史行、导航项或菜单候选，也无法清理上游工具输出的内部模糊。安装：
@@ -120,7 +122,7 @@ pwsh -File extensions/Install-Glass.ps1
 然后在 Codex++ 管理页点“热重载拓展”。禁用使用同一脚本加 `-Disable`，
 再点“热重载拓展”。详见 [增强层安装说明](extensions/README.md)。
 
-[`snow-day-glass-complete-v0.13.0.zip`](dist/snow-day-glass-complete-v0.13.0.zip)
+[`snow-day-glass-complete-v0.14.0.zip`](dist/snow-day-glass-complete-v0.14.0.zip)
 包含上述主题包、扩展和安装说明。这个完整分发包需要先解压，不能直接当作
 DreamSkin 主题包导入。
 
@@ -142,8 +144,8 @@ pwsh -File scripts/build-dreamskin.ps1
 - 正文、思考、工具结果、嵌套输出和菜单大容器不使用背景模糊。
 - 历史行、导航项、项目选项和菜单候选只在悬停或键盘选中时呈现透明渐变、
   内高光和 SVG 边缘折射。滤镜只处理背景，不扭曲文字。
-- B 版的侧栏、输入框、菜单和右侧文件窗格使用 `rgba(255,255,255,0.20)` 白色填充，
-  即 **80% 透明度**；A 版对应为 alpha `0.80`。
+- 当前侧栏、输入框、菜单和右侧文件窗格使用 `rgba(255,255,255,0.50)` 白色填充，
+  即 **50% 透明度**；A 和 B 版分别对应 alpha `0.80` 与 `0.20`。
   用户和助手消息使用 `0.78`，工具输出使用 `0.70`。这些数值是白色层的 alpha，
   不会改变文字、图标或原生隐藏操作的透明度。
 - 文件窗格由一层白色底承载，内部编辑器背景透明，保留语法高亮和编辑行为。
@@ -164,13 +166,16 @@ pwsh -File scripts/build-dreamskin.ps1
 - 侧栏四角 `16px`，延伸至应用底部；顶部菜单及文字颜色更深。
 - 位移贴图最多缓存 16 个，上限 `256x128`；只在目标或尺寸变化时生成，不跟踪鼠标移动，
   不轮询。滚动不再触发脚本监听或 CSSOM 写入。
+- v0.14.0 跳过无位移像素的梯度与法线计算，保留原始位移图像素；输入框缩放复用
+  已测尺寸，移除首次绑定的重复准备。性能数据与适用范围见该版本 QA 文档。
 - 用 `art.taskMode: full` 让底图贯穿首页、对话和设置；主要内容区不再使用不透明底色。
 - 输入框使用 `0 3px 12px rgba(43,58,73,0.09)` 柔和阴影，阅读区保持有色透明底。
 
 DreamSkin 引擎固定使用 `background-size: cover` 铺满窗口，不同窗口比例可能裁剪图片边缘；
 ZIP 协议没有 `contain` 设置，不能保证在任意窗口比例中显示全部图片像素。
 原生 Codex 完整版使用 `contain`，保留完整构图；窗口比例不同时会留下浅色边带。
-测试范围与证据见 [A 版 QA](docs/QA-v0.12.0.md) 与 [B 版 QA](docs/QA-v0.13.0.md)。
+测试范围与证据见 [当前 QA](docs/QA-v0.14.0.md)、[A 版 QA](docs/QA-v0.12.0.md)
+与 [B 版 QA](docs/QA-v0.13.0.md)。
 
 ## 设计契约
 

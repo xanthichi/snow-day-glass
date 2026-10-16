@@ -5,7 +5,7 @@
 }
 
 [data-ds-part="sidebar"] {
-  background-color: rgba(255,255,255,0.2);
+  background-color: rgba(255,255,255,0.5);
   backdrop-filter: none;
   border-width: 0;
   border-right-width: 1px;
@@ -22,7 +22,7 @@
 }
 
 [data-ds-part="header"] {
-  background-color: rgba(255,255,255,0.24);
+  background-color: rgba(255,255,255,0.2);
   backdrop-filter: none;
   border-color: rgba(255,255,255,0.5);
   border-width: 0;
@@ -38,7 +38,7 @@
 
 [data-ds-part="home-hero"] {
   color: #141a20;
-  background-color: rgba(255,255,255,0.2);
+  background-color: rgba(255,255,255,0.5);
   border-color: rgba(255,255,255,0.58);
   border-width: 1px;
   border-style: solid;
@@ -48,7 +48,7 @@
 
 [data-ds-part="project-list"] {
   color: #141a20;
-  background-color: rgba(255,255,255,0.2);
+  background-color: rgba(255,255,255,0.5);
   border-color: rgba(255,255,255,0.58);
   border-width: 1px;
   border-style: solid;
@@ -85,7 +85,7 @@
 }
 
 [data-ds-part="composer"] {
-  background-color: rgba(255,255,255,0.2);
+  background-color: rgba(255,255,255,0.5);
   border-color: rgba(255,255,255,0.9);
   border-width: 1px;
   border-style: solid;
@@ -101,7 +101,7 @@
 }
 
 [data-ds-part="dialog"] {
-  background-color: rgba(255,255,255,0.2);
+  background-color: rgba(255,255,255,0.5);
   border-color: rgba(255,255,255,0.62);
   border-width: 1px;
   border-style: solid;

@@ -96,10 +96,18 @@
         const depth = -distance(px, py, w, h, radius);
         const t = Math.max(0, Math.min(1, depth / band));
         const edge = depth > 0 ? 4 * t * (1 - t) : 0;
+        const index = (y * cw + x) * 4;
+        // Flat pixels have zero displacement; only the edge needs a gradient.
+        if (edge === 0) {
+          image.data[index] = 128;
+          image.data[index + 1] = 128;
+          image.data[index + 2] = 128;
+          image.data[index + 3] = 255;
+          continue;
+        }
         const gx = distance(px + 0.5, py, w, h, radius) - distance(px - 0.5, py, w, h, radius);
         const gy = distance(px, py + 0.5, w, h, radius) - distance(px, py - 0.5, w, h, radius);
         const norm = Math.hypot(gx, gy) || 1;
-        const index = (y * cw + x) * 4;
         image.data[index] = 255 * (0.5 - gx / norm * edge / 2);
         image.data[index + 1] = 255 * (0.5 - gy / norm * edge / 2);
         image.data[index + 2] = 128;
@@ -144,10 +152,11 @@
     }
     return value;
   };
-  const prepare = (node, large = false) => {
+  const prepare = (node, large = false, measuredBox = null) => {
     if (!enabled || !supports || reducedTransparency.matches || !node?.isConnected) return;
-    const box = node.getBoundingClientRect();
+    const box = measuredBox || node.getBoundingClientRect();
     if (box.width < 8 || box.height < 8) return;
+    if (large) composerSize = `${Math.round(box.width)}:${Math.round(box.height)}`;
     setRefraction(node, makeFilter(box.width, box.height, large));
   };
   const resize = new ResizeObserver(() => {
@@ -155,8 +164,7 @@
     const box = composer.getBoundingClientRect();
     const size = `${Math.round(box.width)}:${Math.round(box.height)}`;
     if (size !== composerSize) {
-      composerSize = size;
-      prepare(composer, true);
+      prepare(composer, true, box);
     }
   });
   const bindComposer = node => {
@@ -183,7 +191,6 @@
     if (enabled) {
       root.setAttribute(marker, version);
       bindComposer(document.querySelector(composerSelector));
-      if (composer) { resize.observe(composer); prepare(composer, true); }
     } else {
       root.removeAttribute(marker);
       hovered = null;

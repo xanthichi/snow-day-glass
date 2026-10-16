@@ -18,8 +18,8 @@
   },
   "colors": {
     "background": "#eef5fb",
-    "panel": "rgba(255, 255, 255, 0.20)",
-    "panelAlt": "rgba(255, 255, 255, 0.20)",
+    "panel": "rgba(255, 255, 255, 0.50)",
+    "panelAlt": "rgba(255, 255, 255, 0.50)",
     "accent": "#e0782d",
     "accentAlt": "#d96a1f",
     "secondary": "#a8cfe8",

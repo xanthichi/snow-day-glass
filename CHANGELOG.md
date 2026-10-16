@@ -1,5 +1,19 @@
 # Changelog
 
+## 0.14.0 - 2026-10-16
+
+- Set common white fill to 50% opacity / 50% transparency; retain A and B.
+- Replace the native thread titlebar's independent 90% white and 14px blur,
+  and clear nested summary-header white paint under the panel's own fill.
+- Set the top application titlebar separately to 20% opacity / 80% transparency.
+- Clear the newer native settings select-trigger token's 96% white paint
+  under the single settings page material.
+- Skip gradient and normal calculations for zero-displacement SDF pixels,
+  preserving the original map bytes, dimensions and refraction strength.
+- Reuse measured composer rectangles during resize and remove duplicate
+  preparation when the theme first enables.
+- Preserve the existing hover material, native clipping and control layout.
+
 ## 0.13.0 - 2026-10-15
 
 - Comparison B: change common white fills to 20% opacity / 80% transparency.

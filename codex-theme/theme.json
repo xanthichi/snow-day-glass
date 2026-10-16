@@ -2,8 +2,8 @@
   "schemaVersion": 1,
   "id": "snow-day-glass",
   "displayName": "Snow Day Glass",
-  "description": "Comparison B: winter artwork with common white veils at 20% opacity / 80% transparency, complete Projects and Plugins page coverage and local liquid-glass refraction.",
-  "version": "0.13.0",
+  "description": "Winter artwork with 50% translucent white veils, complete Projects and Plugins page coverage and optimized local liquid-glass refraction.",
+  "version": "0.14.0",
   "mode": "light",
   "css": "theme.css",
   "art": "assets/artwork.jpg",
@@ -15,7 +15,7 @@
     "modeReason": "The reference artwork is a high-luminance winter snow scene; dark mode would fight its brightness.",
     "artFocalPoint": "50% 50%",
     "textSafeRegion": "Local translucent surfaces behind text and controls.",
-    "contrastStrategy": "Comparison B: common white fill at 20% opacity / 80% transparency on sidebar, composer, panels and full Projects/Plugins pages; preserve 78% chat and 70% tool output, dark labels and blue action buttons.",
+    "contrastStrategy": "Common white fill at 50% opacity / 50% transparency; top application titlebar at 20% opacity / 80% transparency. Preserve 78% chat and 70% tool output, dark labels and blue action buttons.",
     "allowedChanges": [
       "semantic palette",
       "native materials",
@@ -31,7 +31,7 @@
       "remove the extra sticky page-header backdrop blur",
       "extend the right file pane to the outer application border",
       "cover the complete Projects and Plugins pages with the common white veil",
-      "compare 80% transparency with the separately committed 80% opacity version"
+      "compare 50% common white fill with the preserved 20% and 80% opacity versions"
     ],
     "preserve": [
       "native geometry",
@@ -46,7 +46,7 @@
   "palette": {
     "canvas": "#eef5fb",
     "surface": "rgba(255, 255, 255, 0.72)",
-    "raised": "rgba(255, 255, 255, 0.20)",
+    "raised": "rgba(255, 255, 255, 0.50)",
     "text": "#141a20",
     "muted": "#2b3946",
     "accent": "#e0782d",

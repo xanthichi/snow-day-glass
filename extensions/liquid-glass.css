@@ -20,7 +20,8 @@
     --color-token-text-primary: #141a20 !important;
     --color-token-text-secondary: #2b3946 !important;
     --color-token-text-tertiary: #344754 !important;
-    --sg-surface-fill: rgba(255, 255, 255, 0.20);
+    --sg-surface-fill: rgba(255, 255, 255, 0.50);
+    --sg-titlebar-fill: rgba(255, 255, 255, 0.20);
     --sg-surface-78: rgba(255, 255, 255, 0.78);
     --sg-surface-70: rgba(255, 255, 255, 0.70);
     --sg-action: #2f6fed;
@@ -60,6 +61,15 @@
     padding-block-end: 0 !important;
   }
 
+  /* The native thread-edge titlebar adds its own 90% white and 14px blur. */
+  :root:is([data-codexthemes-theme="snow-day-glass"], [data-snow-day-liquid-glass="__SNOW_VERSION__"])
+    header[data-app-shell-titlebar][data-app-shell-header-layout] {
+    background: var(--sg-titlebar-fill) !important;
+    background-image: none !important;
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
+  }
+
   /* Keep the sticky heading readable with clear fill instead of extra blur. */
   :root:is([data-codexthemes-theme="snow-day-glass"], [data-snow-day-liquid-glass="__SNOW_VERSION__"])
     [data-app-shell-focus-area] [data-sticky]:not(:has([data-codex-composer-root]))::before {
@@ -82,7 +92,9 @@
       [data-sticky]::before,
   :root:is([data-codexthemes-theme="snow-day-glass"], [data-snow-day-liquid-glass="__SNOW_VERSION__"])
     [data-app-shell-focus-area="main"] [class~="@container/skills-grid"]:has([data-app-shell-inline-page-header])
-      [data-sticky]::before {
+      [data-sticky]::before,
+  :root:is([data-codexthemes-theme="snow-day-glass"], [data-snow-day-liquid-glass="__SNOW_VERSION__"])
+    .group\/settings h3[class~="sticky"][class~="bg-surface"] {
     background-color: var(--ct-canvas, var(--ds-bg, #eef5fb)) !important;
     background-image: linear-gradient(var(--sg-surface-fill), var(--sg-surface-fill)), var(--ct-art, var(--dream-skin-art, none)) !important;
     background-position: center, var(--ds-art-position, center) !important;
@@ -94,17 +106,22 @@
   /* Native settings paint the page once; section borders retain their states. */
   :root:is([data-codexthemes-theme="snow-day-glass"], [data-snow-day-liquid-glass="__SNOW_VERSION__"])
     [data-codex-history-swipe-page] > [class~="electron:bg-surface"] {
+    --color-surface: transparent !important;
+    --color-background-primary-soft: transparent !important;
     background: var(--sg-surface-fill) !important;
   }
 
   :root:is([data-codexthemes-theme="snow-day-glass"], [data-snow-day-liquid-glass="__SNOW_VERSION__"])
     .group\/settings {
     --color-background-panel: transparent !important;
+    --color-background-primary-soft-alpha: transparent !important;
+    --color-background-page-search: transparent !important;
   }
 
   :root:is([data-codexthemes-theme="snow-day-glass"], [data-snow-day-liquid-glass="__SNOW_VERSION__"])
-    .group\/settings button[data-state][class~="bg-surface"] {
+    .group\/settings button[data-state]:is([class~="bg-surface"], [class~="bg-primary-soft-alpha"]) {
     --color-surface: transparent !important;
+    --color-background-primary-soft-alpha: transparent !important;
   }
 
   /* Override the settings page's inline token island, not switch/icon opacity.
@@ -281,7 +298,7 @@
 
   /* A clear menu shell avoids stacking a 24px panel blur behind each option. */
   :root:is([data-codexthemes-theme="snow-day-glass"], [data-snow-day-liquid-glass="__SNOW_VERSION__"])
-    :is([role="menu"], [role="listbox"], [data-slot="popover-content"], [role="dialog"], .codex-session-action-tooltip, .codex-delete-toast):not(#codex-relay-balance-panel):not(.codex-plus-page-overlay > .codex-plus-modal-content) {
+    :is([role="menu"], [role="listbox"], [data-slot="popover-content"], [role="dialog"], .codex-session-action-tooltip, .codex-delete-toast, [data-composer-overlay-floating-ui] > [class*="_suggestionMenu_"]):not(#codex-relay-balance-panel):not(.codex-plus-page-overlay > .codex-plus-modal-content) {
     background: var(--sg-surface-fill) !important;
     -webkit-backdrop-filter: none !important;
     backdrop-filter: none !important;
@@ -308,7 +325,11 @@
   :root:is([data-codexthemes-theme="snow-day-glass"], [data-snow-day-liquid-glass="__SNOW_VERSION__"])
     [data-summary-panel-variant="summary"] > header,
   :root:is([data-codexthemes-theme="snow-day-glass"], [data-snow-day-liquid-glass="__SNOW_VERSION__"])
-    [data-summary-panel-variant="summary"] > header::before {
+    [data-summary-panel-variant="summary"] > header::before,
+  :root:is([data-codexthemes-theme="snow-day-glass"], [data-snow-day-liquid-glass="__SNOW_VERSION__"])
+    [data-summary-panel-variant="summary"] header[class~="bg-surface-elevated-secondary"],
+  :root:is([data-codexthemes-theme="snow-day-glass"], [data-snow-day-liquid-glass="__SNOW_VERSION__"])
+    [data-summary-panel-variant="summary"] header[class~="bg-surface-elevated-secondary"]::before {
     background: transparent !important;
     background-image: none !important;
   }
