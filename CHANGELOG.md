@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.16.0 - 2026-10-16
+
+- Extend local Consolas/Microsoft YaHei to global HTML text, including component
+  font overrides, native mono/UI tokens and diff font variables.
+- Preserve icon and mathematical font renderers; keep code/status colors.
+- Make sidebar primary-ghost text and marquee labels pure black, and set
+  composer editable text/caret black without recoloring action buttons.
+- Retain the previous save-only workflow; do not apply this revision.
+
 ## 0.15.0 - 2026-10-16
 
 - Base the revision on v0.14.0, without the unselected-sidebar white-layer change.

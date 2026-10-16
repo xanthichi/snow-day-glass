@@ -4,12 +4,16 @@
 It supplies per-row and per-candidate SVG refraction that a DreamSkin ZIP cannot
 express, and clears upstream reasoning/tool/sticky blur.
 
-v0.15.0 keeps v0.14.0 materials and uses local Consolas for Latin/digits,
-with Microsoft YaHei for Chinese. Native font tokens and form controls use
-the same stack. No fonts are embedded; the named stack requires this companion
+v0.16.0 keeps v0.14.0 materials and uses local Consolas for Latin/digits,
+with Microsoft YaHei for Chinese. Global HTML text, including component
+font declarations, forms, native UI/mono tokens and diff editor font variables,
+uses the same stack. SVG/icon fonts and mathematical renderers retain theirs.
+Sidebar neutral labels and editable composer text are pure black. Hidden
+actions, disabled opacity, semantic colors and white action icons are preserved.
+No fonts are embedded; the named stack requires this companion
 because the base ZIP accepts only generic font families.
 
-Import the separate `snow-day-glass-theme-v0.15.0.zip` through DreamSkin first.
+Import the separate `snow-day-glass-theme-v0.16.0.zip` through DreamSkin first.
 Then run:
 
 ```powershell

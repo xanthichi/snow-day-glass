@@ -4,7 +4,7 @@
 清晰正文和柔和输入框阴影。v0.10.0 起所有版本只使用本机系统字体，
 不携带字体文件或内嵌字体数据。
 
-![v0.15.0 离线设计预览](previews/design-preview-v0.15.0-1440x900.png)
+![v0.16.0 离线设计预览](previews/design-preview-v0.16.0-1440x900.png)
 
 上图由真实上游 DreamSkin 渲染器在模拟工作区中生成，是设计预览。
 ZIP 使用上游 Rust 导入校验器和 Safe CSS 编译器检查。
@@ -17,7 +17,8 @@ ZIP 使用上游 Rust 导入校验器和 Safe CSS 编译器检查。
 | A · v0.12.0 | 80% | 20% | [A 完整 ZIP](dist/snow-day-glass-complete-v0.12.0.zip) |
 | B · v0.13.0 | 20% | 80% | [B 完整 ZIP](dist/snow-day-glass-complete-v0.13.0.zip) |
 | v0.14.0 | 50% | 50% | [0.14.0 完整 ZIP](dist/snow-day-glass-complete-v0.14.0.zip) |
-| 当前 · v0.15.0 | 50% | 50% | [当前完整 ZIP](dist/snow-day-glass-complete-v0.15.0.zip) |
+| v0.15.0 | 50% | 50% | [0.15.0 完整 ZIP](dist/snow-day-glass-complete-v0.15.0.zip) |
+| 当前 · v0.16.0 | 50% | 50% | [当前完整 ZIP](dist/snow-day-glass-complete-v0.16.0.zip) |
 
 各版都将项目、插件页的正文和空白区域一起铺满，保留相同布局与玻璃效果。
 标题使用对齐全窗背景的独立底层，挡住滚动文字，避免重复叠白。
@@ -54,12 +55,16 @@ node scripts/validate.mjs
 
 ## 字体
 
-- v0.15.0 以 0.14.0 为基准，只更新字体。英文、数字等优先使用本机
+- v0.16.0 保留 0.14.0 的材质与性能逻辑。英文、数字等优先使用本机
   `Consolas`，中文使用 `Microsoft YaHei`（微软雅黑），再回退到
   `Microsoft YaHei UI` 和系统等宽字体。
+- 字体覆盖全局 HTML 文字，包括自身声明字体的侧栏、正文、输入框、设置、
+  菜单和代码；SVG、图标字体、数学公式保留专用字体。左侧中性文字与输入正文纯黑。
 - DreamSkin ZIP 只允许通用字体族，因此指定字体由同版本增强扩展提供。
   不下载、不嵌入、不分发字体。未增加未选中侧栏条目的白色底层。
 - 本次仅保存源码与安装包，没有导入或应用到 Codex++。
+- 只导入主题 ZIP 不会启用上述指定字体，需安装同版本增强扩展并热重载；
+  应用仍显示旧版本时，保存的新字体不会自动进入当前窗口。
 
 ## 安装
 
@@ -113,8 +118,8 @@ npx tsx <skill-dir>/scripts/apply-theme.ts restore   # 恢复原生外观
 `dreamskin-package/` 按 DreamSkin Safe CSS 协议组织：`manifest.json`（含文件
 SHA-256）、`theme.json`、`theme.css`（`data-ds-part` 安全规则）、
 `background.png` 与 `LICENSE.txt`。导入使用
-[`snow-day-glass-theme-v0.15.0.zip`](dist/snow-day-glass-theme-v0.15.0.zip)，
-选中 v0.15.0 后应用，并更新同版本增强扩展。
+[`snow-day-glass-theme-v0.16.0.zip`](dist/snow-day-glass-theme-v0.16.0.zip)，
+选中 v0.16.0 后应用，并更新同版本增强扩展。
 
 **完整的逐项悬停玻璃效果还需官方用户扩展**，因为主题 ZIP 的 Safe CSS 无法
 选择历史行、导航项或菜单候选，也无法清理上游工具输出的内部模糊。安装：
@@ -126,7 +131,7 @@ pwsh -File extensions/Install-Glass.ps1
 然后在 Codex++ 管理页点“热重载拓展”。禁用使用同一脚本加 `-Disable`，
 再点“热重载拓展”。详见 [增强层安装说明](extensions/README.md)。
 
-[`snow-day-glass-complete-v0.15.0.zip`](dist/snow-day-glass-complete-v0.15.0.zip)
+[`snow-day-glass-complete-v0.16.0.zip`](dist/snow-day-glass-complete-v0.16.0.zip)
 包含上述主题包、扩展和安装说明。这个完整分发包需要先解压，不能直接当作
 DreamSkin 主题包导入。
 
@@ -178,7 +183,7 @@ pwsh -File scripts/build-dreamskin.ps1
 DreamSkin 引擎固定使用 `background-size: cover` 铺满窗口，不同窗口比例可能裁剪图片边缘；
 ZIP 协议没有 `contain` 设置，不能保证在任意窗口比例中显示全部图片像素。
 原生 Codex 完整版使用 `contain`，保留完整构图；窗口比例不同时会留下浅色边带。
-测试范围与证据见 [当前 QA](docs/QA-v0.15.0.md)、[0.14.0 QA](docs/QA-v0.14.0.md)、[A 版 QA](docs/QA-v0.12.0.md)
+测试范围与证据见 [当前 QA](docs/QA-v0.16.0.md)、[0.15.0 QA](docs/QA-v0.15.0.md)、[0.14.0 QA](docs/QA-v0.14.0.md)、[A 版 QA](docs/QA-v0.12.0.md)
 与 [B 版 QA](docs/QA-v0.13.0.md)。
 
 ## 设计契约

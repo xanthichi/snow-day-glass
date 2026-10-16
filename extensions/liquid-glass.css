@@ -7,8 +7,12 @@
     --font-openai-sans: var(--sg-font) !important;
     --default-font-family: var(--sg-font) !important;
     --font-mono: var(--sg-font) !important;
+    --font-mono-default: var(--sg-font) !important;
+    --default-mono-font-family: var(--sg-font) !important;
+    --font-ui-family: var(--sg-font) !important;
     --font-code: var(--sg-font) !important;
     --font-code-family: var(--sg-font) !important;
+    --diffs-font-family: var(--sg-font) !important;
     font-family: var(--sg-font) !important;
     --sg-ink: #141a20;
     --sg-tint: rgba(255, 255, 255, 0.22);
@@ -40,9 +44,10 @@
     --color-text-tertiary: #344754 !important;
   }
 
-  /* Consolas supplies Latin/digits; Chinese falls back to local Microsoft YaHei. */
+  /* Global text must override component font declarations, not just inheritance.
+     Keep symbol fonts and math metrics owned by their renderers. */
   :root:is([data-codexthemes-theme="snow-day-glass"], [data-snow-day-liquid-glass="__SNOW_VERSION__"])
-    :is(body, button, input, select, textarea) {
+    :is(body, body *):not(:where(svg, svg *, math, math *, .katex, .katex *, .MathJax, .MathJax *, .codicon, .codicon *, [data-icon-font], [data-icon-font] *, .material-icons, .material-symbols-outlined)) {
     font-family: var(--sg-font) !important;
   }
 
@@ -171,14 +176,19 @@
   }
 
   :root:is([data-codexthemes-theme="snow-day-glass"], [data-snow-day-liquid-glass="__SNOW_VERSION__"])
-    aside.app-shell-left-panel [data-slate-sidebar-content] {
+    aside.app-shell-left-panel {
     --sg-ink: #000000;
     --ds-text: #000000 !important;
     --ds-muted: #000000 !important;
     --ds-text-rgb: 0 0 0 !important;
     --ds-muted-rgb: 0 0 0 !important;
     --color-text: #000000 !important;
+    --color-text-primary: #000000 !important;
+    --color-text-primary-ghost: #000000 !important;
+    --color-text-primary-ghost-hover: #000000 !important;
     --color-text-secondary: #000000 !important;
+    --color-text-secondary-ghost: #000000 !important;
+    --color-text-secondary-outline: #000000 !important;
     --color-text-tertiary: #000000 !important;
     --color-codex-description: #000000 !important;
     --color-text-foreground: #000000 !important;
@@ -186,12 +196,38 @@
     --color-token-text-secondary: #000000 !important;
     --color-token-text-tertiary: #000000 !important;
     color: #000000 !important;
+  }
+
+  :root:is([data-codexthemes-theme="snow-day-glass"], [data-snow-day-liquid-glass="__SNOW_VERSION__"])
+    aside.app-shell-left-panel [data-slate-sidebar-content] {
     background: var(--sg-surface-fill) !important;
     background-image: none !important;
     border-radius: 16px !important;
     box-shadow: var(--sg-edge) !important;
     -webkit-backdrop-filter: none !important;
     backdrop-filter: none !important;
+  }
+
+  :root:is([data-codexthemes-theme="snow-day-glass"], [data-snow-day-liquid-glass="__SNOW_VERSION__"])
+    aside.app-shell-left-panel [data-marquee-content] {
+    color: #000000 !important;
+  }
+
+  /* Only editable text is black; send/stop controls keep their white icons. */
+  :root:is([data-codexthemes-theme="snow-day-glass"], [data-snow-day-liquid-glass="__SNOW_VERSION__"])
+    :is([data-composer-body], [data-ds-part="composer"], [data-codex-composer="true"]) {
+    --color-text-foreground: #000000 !important;
+    --color-token-input-foreground: #000000 !important;
+    --color-text-input: #000000 !important;
+  }
+
+  :root:is([data-codexthemes-theme="snow-day-glass"], [data-snow-day-liquid-glass="__SNOW_VERSION__"])
+    :is([data-composer-body], [data-ds-part="composer"])
+      :is(textarea, [contenteditable="true"], [contenteditable="true"] p, [contenteditable="true"] span),
+  :root:is([data-codexthemes-theme="snow-day-glass"], [data-snow-day-liquid-glass="__SNOW_VERSION__"])
+    [data-codex-composer="true"] {
+    color: #000000 !important;
+    caret-color: #000000 !important;
   }
 
   :root:is([data-codexthemes-theme="snow-day-glass"], [data-snow-day-liquid-glass="__SNOW_VERSION__"])
@@ -365,6 +401,7 @@
   :root:is([data-codexthemes-theme="snow-day-glass"], [data-snow-day-liquid-glass="__SNOW_VERSION__"])
     [data-app-shell-tab-panel-controller] diffs-container {
     --diffs-bg: transparent !important;
+    --diffs-font-family: var(--sg-font) !important;
     --color-surface: transparent !important;
     background: transparent !important;
   }

@@ -4,9 +4,9 @@
     {
       "id": "snow-day-glass",
       "name": "Snow Day Glass",
-      "version": "0.15.0",
+      "version": "0.16.0",
       "author": "youyi",
-      "description": "Snow Day Glass 0.15.0: v0.14.0 materials with local Consolas and Microsoft YaHei typography via the companion. Background: pixiv.net/artworks/139476242.",
+      "description": "Snow Day Glass 0.16.0: global Consolas/Microsoft YaHei, black sidebar and composer text, preserved glass materials. Background: pixiv.net/artworks/139476242.",
       "license": "主题配置与脚本按仓库 LICENSE（MIT）提供；背景图与字体授权见 themes/snow-day-glass/LICENSE.md",
       "source_url": "https://github.com/xanthichi/snow-day-glass",
       "tags": [

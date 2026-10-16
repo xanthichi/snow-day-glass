@@ -1,7 +1,7 @@
 {
   "packageVersion": 1,
   "themeId": "snow-day-glass",
-  "version": "0.15.0",
+  "version": "0.16.0",
   "skinApiVersion": 1,
   "minClientVersion": "1.5.12",
   "platforms": [
@@ -19,7 +19,7 @@
   "license": "MIT-AND-Reference-Only",
   "provenance": {
     "aiGenerated": true,
-    "summary": "Background from https://www.pixiv.net/artworks/139476242. Based on v0.14.0 materials and optimized runtime; the companion sets local Consolas for Latin/digits and Microsoft YaHei for Chinese. No fonts are embedded."
+    "summary": "Background from https://www.pixiv.net/artworks/139476242. Global HTML typography uses local Consolas and Microsoft YaHei, with pure-black sidebar labels and composer text. Preserve v0.14.0 materials, optimized runtime, icons and semantic colors. No embedded fonts."
   },
   "files": [
     {
