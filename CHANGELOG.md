@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.18.0 - 2026-10-22
+
+- Remove custom fonts, forced-black text and other theme typography settings.
+  Reversibly release text declarations in the registered DreamSkin stylesheet
+  so unskinned Codex light author rules take over.
+- Keep the 32px native scroll-fade cleanup. Diagnose the installed/live
+  companion still reporting v0.14.0; importing the ZIP alone cannot update it.
+- Preserve wallpaper, materials, layout and glass; save/package without applying.
+
 ## 0.17.0 - 2026-10-22
 
 - Clear only the newer 32px native white fade inside the bottom scroll spacer.

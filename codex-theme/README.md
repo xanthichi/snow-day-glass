@@ -1,13 +1,16 @@
 # Snow Day Glass
 
-Created with the canonical CodexThemes theme creator. Version 0.17.0.
+Created with the canonical CodexThemes theme creator. Version 0.18.0.
 
-Only change from v0.16.0: clear the newer native bottom-spacer gradient above
-the thread composer. All fonts, colors, materials, shadows and layout remain.
+Text follows the unskinned Codex light appearance. Theme font stacks,
+forced-black labels and other text overrides have been removed. Native UI/code
+font differences, semantic foregrounds, placeholders and disabled states remain.
+Use the app's native light appearance; opposite-mode startup is not verified.
+The newer 32px native bottom-spacer gradient above the thread composer is clear.
 
 One continuous, uncropped winter artwork across the app. Reading surfaces use
-50%, 78% and 70% white fills with no blur, black sidebar text and blue action
-controls. Hovered or keyboard-highlighted choices retain local glass material.
+50%, 78% and 70% white fills with no blur and blue action backgrounds.
+Hovered or keyboard-highlighted choices retain local glass material.
 Settings use a single 50% page fill without underlying text ghosting. Sticky
 headings keep a clear white fill without blur, and file panes meet the outer
 right border.
@@ -20,13 +23,13 @@ without its native persistent blur.
 The companion skips SDF gradients for zero-displacement pixels and reuses
 composer resize measurements without reducing refraction resolution or strength.
 
-Based on v0.14.0 materials and runtime. Global HTML typography uses local Consolas,
-with Microsoft YaHei for Chinese, then Microsoft YaHei UI and system monospace.
-Sidebar neutral labels and editable composer text are pure black. Component
-font declarations are covered globally, with icon/math renderer exclusions.
+Existing materials, shadows and layout are preserved.
 No font files or font data are embedded. Artwork supplied by the user from
 https://www.pixiv.net/artworks/139476242.
 
 Codex++ uses a separate official user extension for local SDF refraction and
 precise component styling because its DreamSkin ZIP uses restricted Safe CSS.
+That companion also reversibly releases DreamSkin engine text declarations;
+importing its theme ZIP alone does not update an older installed companion.
 Verification scope is recorded in the repository's versioned QA documents.
+This revision is saved and packaged only, without live application or restart.

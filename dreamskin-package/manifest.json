@@ -1,7 +1,7 @@
 {
   "packageVersion": 1,
   "themeId": "snow-day-glass",
-  "version": "0.17.0",
+  "version": "0.18.0",
   "skinApiVersion": 1,
   "minClientVersion": "1.5.12",
   "platforms": [
@@ -19,7 +19,7 @@
   "license": "MIT-AND-Reference-Only",
   "provenance": {
     "aiGenerated": true,
-    "summary": "Background from https://www.pixiv.net/artworks/139476242. v0.17.0 removes only the newer native 32px white gradient above the thread composer. All v0.16.0 typography, colors, materials, layout and runtime behavior are preserved."
+    "summary": "Background from https://www.pixiv.net/artworks/139476242. Use unskinned Codex light typography, without custom font/text overrides. The matching companion releases DreamSkin engine text rules and clears the native 32px scroll fade; theme ZIP import alone does not update it."
   },
   "files": [
     {
@@ -31,8 +31,8 @@
     {
       "path": "theme.css",
       "mediaType": "text/css",
-      "bytes": 2399,
-      "sha256": "4c6a69739476089ee1b541a5cdce1a2972541259c5030c943dd0ecf59cd26edb"
+      "bytes": 2168,
+      "sha256": "f8fd5cb61332d771f59257b824121b97250c8ab455cf0a06782c3309b629e62c"
     },
     {
       "path": "background.png",

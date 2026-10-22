@@ -4,7 +4,7 @@
 清晰正文和柔和输入框阴影。v0.10.0 起所有版本只使用本机系统字体，
 不携带字体文件或内嵌字体数据。
 
-![离线设计预览（保留 0.16.0 视觉）](previews/design-preview-v0.16.0-1440x900.png)
+![v0.18.0 离线设计预览](previews/design-preview-v0.18.0-1440x900.png)
 
 上图由真实上游 DreamSkin 渲染器在模拟工作区中生成，是设计预览。
 ZIP 使用上游 Rust 导入校验器和 Safe CSS 编译器检查。
@@ -19,14 +19,18 @@ ZIP 使用上游 Rust 导入校验器和 Safe CSS 编译器检查。
 | v0.14.0 | 50% | 50% | [0.14.0 完整 ZIP](dist/snow-day-glass-complete-v0.14.0.zip) |
 | v0.15.0 | 50% | 50% | [0.15.0 完整 ZIP](dist/snow-day-glass-complete-v0.15.0.zip) |
 | v0.16.0 | 50% | 50% | [0.16.0 完整 ZIP](dist/snow-day-glass-complete-v0.16.0.zip) |
-| 当前 · v0.17.0 | 50% | 50% | [当前完整 ZIP](dist/snow-day-glass-complete-v0.17.0.zip) |
+| v0.17.0 | 50% | 50% | [0.17.0 完整 ZIP](dist/snow-day-glass-complete-v0.17.0.zip) |
+| 当前 · v0.18.0 | 50% | 50% | [当前完整 ZIP](dist/snow-day-glass-complete-v0.18.0.zip) |
 
 各版都将项目、插件页的正文和空白区域一起铺满，保留相同布局与玻璃效果。
 标题使用对齐全窗背景的独立底层，挡住滚动文字，避免重复叠白。
 聊天消息的 78% 与工具结果的 70% 不透明度保留原设定。
 当前默认是 50%。切换比较时，同时导入所选版本的主题 ZIP 并安装同版本增强扩展。
 最上方应用标题栏单独使用 **80% 透明度 / 20% 不透明度**，不使用背景模糊。
-0.17.0 仅清除聊天输入框上方新版滚动占位层的白色渐变，其他效果保持 0.16.0 不变。
+0.18.0 恢复未安装皮肤时 Codex 原版亮色模式的文字样式，保留现有背景和玻璃材质。
+输入框上方的白光来自原生 32px 滚动渐变层，由增强扩展清除。
+只读检查时当前增强扩展仍为 0.14.0；**只导入主题 ZIP 不会更新增强扩展**，
+需要同时安装完整包内的 0.18.0 脚本并热重载，才能启用这些修复。
 
 ## 背景图片来源
 
@@ -40,7 +44,7 @@ index.json                       Codex++ 市场清单（含 SHA-256）
 themes/snow-day-glass/           Codex++ 主题格式（schemaVersion 1）
 dreamskin-package/               DreamSkin 导入包源文件（Safe CSS 协议）
 codex-theme/                     完整版 Codex 桌面主题（codex-theme-creator 格式）
-  theme.json / theme.css         主题清单与完整样式（系统字体）
+  theme.json / theme.css         主题清单与完整样式（沿用原版文字）
   assets/artwork.jpg             背景图
   previews/                      1440x900 与 980x760 预览
 scripts/validate.mjs             Codex++ 格式结构校验脚本
@@ -57,16 +61,16 @@ node scripts/validate.mjs
 
 ## 字体
 
-- v0.16.0 保留 0.14.0 的材质与性能逻辑。英文、数字等优先使用本机
-  `Consolas`，中文使用 `Microsoft YaHei`（微软雅黑），再回退到
-  `Microsoft YaHei UI` 和系统等宽字体。
-- 字体覆盖全局 HTML 文字，包括自身声明字体的侧栏、正文、输入框、设置、
-  菜单和代码；SVG、图标字体、数学公式保留专用字体。左侧中性文字与输入正文纯黑。
-- DreamSkin ZIP 只允许通用字体族，因此指定字体由同版本增强扩展提供。
-  不下载、不嵌入、不分发字体。未增加未选中侧栏条目的白色底层。
+- v0.18.0 删除主题指定的字体、字重、字号、字距、文字颜色和输入光标颜色，
+  由**未安装皮肤的 Codex 原版亮色模式**决定。保留原生正文与代码的字体区别、
+  次要文字、占位文字、语法颜色和禁用状态。
+- 不再强制微软雅黑、Consolas 或纯黑文字，也不下载、嵌入或分发字体。
+- DreamSkin 引擎本身还会生成文字覆盖规则。同版本增强扩展只在引擎注册的
+  样式表内可逆地释放这些声明，让 Codex 自带样式生效；禁用后恢复引擎规则。
+  不修改应用文件、应用样式表或其他扩展的样式表。
+- 请使用 Codex 自带亮色模式。本次验证针对原版亮色文字，不包含深色启动验证。
 - 本次仅保存源码与安装包，没有导入或应用到 Codex++。
-- 只导入主题 ZIP 不会启用上述指定字体，需安装同版本增强扩展并热重载；
-  应用仍显示旧版本时，保存的新字体不会自动进入当前窗口。
+- 只导入主题 ZIP 不会替换旧增强扩展；需要安装同版本脚本并热重载。
 
 ## 安装
 
@@ -91,6 +95,7 @@ pwsh -File extensions/Install-Glass.ps1，
 
 保留其他主题、扩展和应用设置，使用官方导入与用户扩展接口完成安装。
 完成后确认主题版本、扩展加载状态、输入框与工具栏间距，以及中文显示正常。
+使用 Codex 原版亮色模式，确认文字沿用无皮肤的原生样式。
 如果需要重启 Codex++，先征求我的同意；如果无法自动操作导入入口，请明确
 说明原因和最少需要我完成的操作，并准确报告已完成与尚未完成的步骤。
 ```
@@ -120,8 +125,8 @@ npx tsx <skill-dir>/scripts/apply-theme.ts restore   # 恢复原生外观
 `dreamskin-package/` 按 DreamSkin Safe CSS 协议组织：`manifest.json`（含文件
 SHA-256）、`theme.json`、`theme.css`（`data-ds-part` 安全规则）、
 `background.png` 与 `LICENSE.txt`。导入使用
-[`snow-day-glass-theme-v0.17.0.zip`](dist/snow-day-glass-theme-v0.17.0.zip)，
-选中 v0.17.0 后应用，并更新同版本增强扩展。
+[`snow-day-glass-theme-v0.18.0.zip`](dist/snow-day-glass-theme-v0.18.0.zip)，
+选中 v0.18.0 后应用，并更新同版本增强扩展。
 
 **完整的逐项悬停玻璃效果还需官方用户扩展**，因为主题 ZIP 的 Safe CSS 无法
 选择历史行、导航项或菜单候选，也无法清理上游工具输出的内部模糊。安装：
@@ -133,9 +138,9 @@ pwsh -File extensions/Install-Glass.ps1
 然后在 Codex++ 管理页点“热重载拓展”。禁用使用同一脚本加 `-Disable`，
 再点“热重载拓展”。详见 [增强层安装说明](extensions/README.md)。
 
-[`snow-day-glass-complete-v0.17.0.zip`](dist/snow-day-glass-complete-v0.17.0.zip)
+[`snow-day-glass-complete-v0.18.0.zip`](dist/snow-day-glass-complete-v0.18.0.zip)
 包含上述主题包、扩展和安装说明。这个完整分发包需要先解压，不能直接当作
-DreamSkin 主题包导入。
+DreamSkin 主题包导入。逐步说明见 [v0.18.0 安装说明](docs/INSTALL-v0.18.0.md)。
 
 重新构建时执行：
 
@@ -168,13 +173,13 @@ pwsh -File scripts/build-dreamskin.ps1
 - 项目和插件页的正文及空白区域铺满同版本白色蒙版；标题以同浓度白色覆盖
   对齐全窗的背景图，避免滚动列表文字穿到标题下面。
 - 右侧文件窗格贴齐窗口外边框，清除原生 `4px` 外侧槽，保留分栏拖动和内容宽度规则。
-- 侧栏文字纯黑；发送、停止、暂停、继续和中止使用蓝色底与白色图标。
+- 侧栏、输入正文和操作图标沿用原版亮色前景；发送、停止、暂停、继续和中止保留蓝色底。
 - 清除滚动占位层及输入区的原生白色渐变，保留输入框柔和阴影与边缘折射。
 - 首页玻璃只绘制在实际输入面；工具栏取消原生 4px 内收并留出 8px 间距，
   边缘不再重叠叠白。
 - 原生滚动视口直接结束在输入区上沿，保留底部锚点和输入框点击区，快速滚动时
   不会再出现历史消息先穿透后消失。
-- 侧栏四角 `16px`，延伸至应用底部；顶部菜单及文字颜色更深。
+- 侧栏四角 `16px`，延伸至应用底部；顶部菜单及文字颜色沿用原版亮色。
 - 位移贴图最多缓存 16 个，上限 `256x128`；只在目标或尺寸变化时生成，不跟踪鼠标移动，
   不轮询。滚动不再触发脚本监听或 CSSOM 写入。
 - v0.14.0 跳过无位移像素的梯度与法线计算，保留原始位移图像素；输入框缩放复用
@@ -185,7 +190,7 @@ pwsh -File scripts/build-dreamskin.ps1
 DreamSkin 引擎固定使用 `background-size: cover` 铺满窗口，不同窗口比例可能裁剪图片边缘；
 ZIP 协议没有 `contain` 设置，不能保证在任意窗口比例中显示全部图片像素。
 原生 Codex 完整版使用 `contain`，保留完整构图；窗口比例不同时会留下浅色边带。
-测试范围与证据见 [当前 QA](docs/QA-v0.17.0.md)、[0.16.0 QA](docs/QA-v0.16.0.md)、[0.15.0 QA](docs/QA-v0.15.0.md)、[0.14.0 QA](docs/QA-v0.14.0.md)、[A 版 QA](docs/QA-v0.12.0.md)
+测试范围与证据见 [当前 QA](docs/QA-v0.18.0.md)、[0.17.0 QA](docs/QA-v0.17.0.md)、[0.16.0 QA](docs/QA-v0.16.0.md)、[0.15.0 QA](docs/QA-v0.15.0.md)、[0.14.0 QA](docs/QA-v0.14.0.md)、[A 版 QA](docs/QA-v0.12.0.md)
 与 [B 版 QA](docs/QA-v0.13.0.md)。
 
 ## 设计契约

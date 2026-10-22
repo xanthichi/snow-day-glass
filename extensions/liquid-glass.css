@@ -1,54 +1,17 @@
 /* Refraction follows Shu Ding's SDF/SVG material. Keep reading surfaces clear. */
 @layer dreamskin-community {
   :root:is([data-codexthemes-theme="snow-day-glass"], [data-snow-day-liquid-glass="__SNOW_VERSION__"]) {
-    --sg-font: "Consolas", "Microsoft YaHei", "Microsoft YaHei UI", monospace;
-    --font-sans: var(--sg-font) !important;
-    --font-sans-default: var(--sg-font) !important;
-    --font-openai-sans: var(--sg-font) !important;
-    --default-font-family: var(--sg-font) !important;
-    --font-mono: var(--sg-font) !important;
-    --font-mono-default: var(--sg-font) !important;
-    --default-mono-font-family: var(--sg-font) !important;
-    --font-ui-family: var(--sg-font) !important;
-    --font-code: var(--sg-font) !important;
-    --font-code-family: var(--sg-font) !important;
-    --diffs-font-family: var(--sg-font) !important;
-    font-family: var(--sg-font) !important;
-    --sg-ink: #141a20;
     --sg-tint: rgba(255, 255, 255, 0.22);
     --sg-selected: rgba(239, 249, 255, 0.66);
     --sg-gloss: linear-gradient(118deg, rgba(255, 255, 255, 0.78), rgba(255, 255, 255, 0.12) 42%, rgba(214, 238, 251, 0.36) 72%, rgba(255, 255, 255, 0.72));
     --sg-edge: inset 0 1px 0 rgba(255, 255, 255, 0.98), inset 0 0 0 1px rgba(255, 255, 255, 0.72), inset 0 -1px 0 rgba(107, 153, 180, 0.22);
     --sg-lift: 0 3px 10px rgba(43, 58, 73, 0.12);
     --sg-focus: #337d48;
-    --ds-text: #141a20 !important;
-    --ds-muted: #2b3946 !important;
-    --ds-text-rgb: 20 26 32 !important;
-    --ds-muted-rgb: 43 57 70 !important;
-    --color-icon-primary: #202d38 !important;
-    --color-icon-secondary: #2b3946 !important;
-    --color-icon-tertiary: #344754 !important;
-    --color-text-foreground: #141a20 !important;
-    --color-text-foreground-secondary: #2b3946 !important;
-    --color-token-text-primary: #141a20 !important;
-    --color-token-text-secondary: #2b3946 !important;
-    --color-token-text-tertiary: #344754 !important;
     --sg-surface-fill: rgba(255, 255, 255, 0.50);
     --sg-titlebar-fill: rgba(255, 255, 255, 0.20);
     --sg-surface-78: rgba(255, 255, 255, 0.78);
     --sg-surface-70: rgba(255, 255, 255, 0.70);
     --sg-action: #2f6fed;
-    --color-token-description-foreground: #2b3946 !important;
-    --color-token-icon-foreground: #2b3946 !important;
-    --color-codex-description: #2b3946 !important;
-    --color-text-tertiary: #344754 !important;
-  }
-
-  /* Global text must override component font declarations, not just inheritance.
-     Keep symbol fonts and math metrics owned by their renderers. */
-  :root:is([data-codexthemes-theme="snow-day-glass"], [data-snow-day-liquid-glass="__SNOW_VERSION__"])
-    :is(body, body *):not(:where(svg, svg *, math, math *, .katex, .katex *, .MathJax, .MathJax *, .codicon, .codicon *, [data-icon-font], [data-icon-font] *, .material-icons, .material-symbols-outlined)) {
-    font-family: var(--sg-font) !important;
   }
 
   :root:is([data-codexthemes-theme="snow-day-glass"], [data-snow-day-liquid-glass="__SNOW_VERSION__"])
@@ -176,29 +139,6 @@
   }
 
   :root:is([data-codexthemes-theme="snow-day-glass"], [data-snow-day-liquid-glass="__SNOW_VERSION__"])
-    aside.app-shell-left-panel {
-    --sg-ink: #000000;
-    --ds-text: #000000 !important;
-    --ds-muted: #000000 !important;
-    --ds-text-rgb: 0 0 0 !important;
-    --ds-muted-rgb: 0 0 0 !important;
-    --color-text: #000000 !important;
-    --color-text-primary: #000000 !important;
-    --color-text-primary-ghost: #000000 !important;
-    --color-text-primary-ghost-hover: #000000 !important;
-    --color-text-secondary: #000000 !important;
-    --color-text-secondary-ghost: #000000 !important;
-    --color-text-secondary-outline: #000000 !important;
-    --color-text-tertiary: #000000 !important;
-    --color-codex-description: #000000 !important;
-    --color-text-foreground: #000000 !important;
-    --color-token-text-primary: #000000 !important;
-    --color-token-text-secondary: #000000 !important;
-    --color-token-text-tertiary: #000000 !important;
-    color: #000000 !important;
-  }
-
-  :root:is([data-codexthemes-theme="snow-day-glass"], [data-snow-day-liquid-glass="__SNOW_VERSION__"])
     aside.app-shell-left-panel [data-slate-sidebar-content] {
     background: var(--sg-surface-fill) !important;
     background-image: none !important;
@@ -206,49 +146,6 @@
     box-shadow: var(--sg-edge) !important;
     -webkit-backdrop-filter: none !important;
     backdrop-filter: none !important;
-  }
-
-  :root:is([data-codexthemes-theme="snow-day-glass"], [data-snow-day-liquid-glass="__SNOW_VERSION__"])
-    aside.app-shell-left-panel [data-marquee-content] {
-    color: #000000 !important;
-  }
-
-  /* Only editable text is black; send/stop controls keep their white icons. */
-  :root:is([data-codexthemes-theme="snow-day-glass"], [data-snow-day-liquid-glass="__SNOW_VERSION__"])
-    :is([data-composer-body], [data-ds-part="composer"], [data-codex-composer="true"]) {
-    --color-text-foreground: #000000 !important;
-    --color-token-input-foreground: #000000 !important;
-    --color-text-input: #000000 !important;
-  }
-
-  :root:is([data-codexthemes-theme="snow-day-glass"], [data-snow-day-liquid-glass="__SNOW_VERSION__"])
-    :is([data-composer-body], [data-ds-part="composer"])
-      :is(textarea, [contenteditable="true"], [contenteditable="true"] p, [contenteditable="true"] span),
-  :root:is([data-codexthemes-theme="snow-day-glass"], [data-snow-day-liquid-glass="__SNOW_VERSION__"])
-    [data-codex-composer="true"] {
-    color: #000000 !important;
-    caret-color: #000000 !important;
-  }
-
-  :root:is([data-codexthemes-theme="snow-day-glass"], [data-snow-day-liquid-glass="__SNOW_VERSION__"])
-    [class*="_ApplicationMenuTopBar_"] [role="menubar"] > [role="menuitem"]:not(:disabled):not([aria-disabled="true"]) {
-    color: var(--sg-ink) !important;
-  }
-
-  :root:is([data-codexthemes-theme="snow-day-glass"], [data-snow-day-liquid-glass="__SNOW_VERSION__"])
-    main [class~="heading-xl"] button {
-    color: var(--sg-ink) !important;
-  }
-
-  :root:is([data-codexthemes-theme="snow-day-glass"], [data-snow-day-liquid-glass="__SNOW_VERSION__"])
-    [class*="_cadencedShimmer_"] {
-    --shimmer-contrast: var(--sg-ink) !important;
-    --shimmer-text-secondary: #37434f !important;
-  }
-
-  :root:is([data-codexthemes-theme="snow-day-glass"], [data-snow-day-liquid-glass="__SNOW_VERSION__"])
-    :is([data-sidebar-destination], [data-app-action-sidebar-thread-id], [data-app-action-sidebar-project-row], [data-ds-part="composer-toolbar"]) {
-    color: var(--sg-ink) !important;
   }
 
   :root:is([data-codexthemes-theme="snow-day-glass"], [data-snow-day-liquid-glass="__SNOW_VERSION__"])
@@ -261,7 +158,6 @@
   :root:is([data-codexthemes-theme="snow-day-glass"], [data-snow-day-liquid-glass="__SNOW_VERSION__"])
     :is([data-ds-part="message"], [data-message-author-role], [data-response-annotation-conversation][data-response-annotation-target], [data-local-conversation-item-target-ids]) {
     background: var(--sg-surface-78) !important;
-    color: var(--sg-ink) !important;
     -webkit-backdrop-filter: none !important;
     backdrop-filter: none !important;
     filter: none !important;
@@ -343,13 +239,6 @@
     backdrop-filter: none !important;
   }
 
-  /* Keep sidebar icons and labels legible without changing hidden action
-     opacity or row geometry. */
-  :root:is([data-codexthemes-theme="snow-day-glass"], [data-snow-day-liquid-glass="__SNOW_VERSION__"])
-    aside.app-shell-left-panel :is(button, a, [role="button"]) {
-    color: #000000 !important;
-  }
-
   /* A clear menu shell avoids stacking a 24px panel blur behind each option. */
   :root:is([data-codexthemes-theme="snow-day-glass"], [data-snow-day-liquid-glass="__SNOW_VERSION__"])
     :is([role="menu"], [role="listbox"], [data-slot="popover-content"], [role="dialog"], .codex-session-action-tooltip, .codex-delete-toast, [data-composer-overlay-floating-ui] > [class*="_suggestionMenu_"]):not(#codex-relay-balance-panel):not(.codex-plus-page-overlay > .codex-plus-modal-content) {
@@ -373,7 +262,6 @@
     [data-summary-panel-variant="summary"] {
     background: var(--sg-surface-fill) !important;
     background-image: none !important;
-    color: #141a20 !important;
   }
 
   :root:is([data-codexthemes-theme="snow-day-glass"], [data-snow-day-liquid-glass="__SNOW_VERSION__"])
@@ -404,7 +292,6 @@
   :root:is([data-codexthemes-theme="snow-day-glass"], [data-snow-day-liquid-glass="__SNOW_VERSION__"])
     [data-app-shell-tab-panel-controller] diffs-container {
     --diffs-bg: transparent !important;
-    --diffs-font-family: var(--sg-font) !important;
     --color-surface: transparent !important;
     background: transparent !important;
   }
@@ -413,7 +300,6 @@
     :is([data-ds-part="composer"], .composer-surface-chrome, [class*="_ComposerLayoutRoot_"], [data-composer-surface-variant][data-composer-radius-variant]):not([data-composer-utility-bar-variant="home"]),
   :root:is([data-codexthemes-theme="snow-day-glass"], [data-snow-day-liquid-glass="__SNOW_VERSION__"])
     [data-composer-utility-bar-variant="home"] [data-composer-body] {
-    color: var(--sg-ink) !important;
     background: var(--sg-surface-fill) !important;
     background-image: none !important;
     --composer-layout-surface-background: var(--sg-surface-fill) !important;
@@ -461,21 +347,9 @@
       [data-composer-rail-item] button:is([aria-label="暂停目标"], [aria-label="继续目标"], [aria-label="中止目标"], [aria-label="清除目标"]),
       [data-thread-scroll-footer] button:is([aria-label="暂停"], [aria-label="继续"], [aria-label="中止"], [aria-label="停止"])) {
     background: var(--sg-action) !important;
-    color: #ffffff !important;
     --ds-green: var(--sg-action) !important;
     --ds-accent: var(--sg-action) !important;
-    --ds-on-accent: #ffffff !important;
     --color-background-composer-primary: var(--sg-action) !important;
-    --color-text-composer-primary: #ffffff !important;
-  }
-
-  :root:is([data-codexthemes-theme="snow-day-glass"], [data-snow-day-liquid-glass="__SNOW_VERSION__"])
-    :is([data-ds-part="composer"] button.bg-composer-primary,
-      [data-ds-part="composer"] button[aria-label="发送"],
-      [data-ds-part="composer"] button[aria-label="停止"],
-      [data-composer-rail-item] button:is([aria-label="暂停目标"], [aria-label="继续目标"], [aria-label="中止目标"], [aria-label="清除目标"]),
-      [data-thread-scroll-footer] button:is([aria-label="暂停"], [aria-label="继续"], [aria-label="中止"], [aria-label="停止"])) :is(svg, svg path, svg circle, svg rect, svg line, svg polyline, svg polygon, svg use) {
-    color: #ffffff !important;
   }
 
   :root:is([data-codexthemes-theme="snow-day-glass"], [data-snow-day-liquid-glass="__SNOW_VERSION__"])
@@ -499,7 +373,7 @@
     :is([data-app-action-sidebar-thread-id], [data-sidebar-destination], [data-codex-plus-page-nav], .codex-plus-page-nav-item, [role="option"], [role="menuitem"], [role="menuitemradio"], [role="menuitemcheckbox"], .codex-plus-dropdown-option, .codex-session-more-menu-item, [data-ds-part="project-list"], .group\/project-selector, .group\/home-suggestions button) {
     -webkit-backdrop-filter: none !important;
     backdrop-filter: none !important;
-    transition: background-color 110ms ease-out, color 110ms ease-out !important;
+    transition: background-color 110ms ease-out !important;
   }
 
   :root:is([data-codexthemes-theme="snow-day-glass"], [data-snow-day-liquid-glass="__SNOW_VERSION__"])
@@ -516,7 +390,6 @@
 
   :root:is([data-codexthemes-theme="snow-day-glass"], [data-snow-day-liquid-glass="__SNOW_VERSION__"])
     :is([data-app-action-sidebar-thread-id], [data-sidebar-destination], [data-codex-plus-page-nav], .codex-plus-page-nav-item, [role="option"], [role="menuitem"], [role="menuitemradio"], [role="menuitemcheckbox"], .codex-plus-dropdown-option, .codex-session-more-menu-item, [data-ds-part="project-list"], .group\/project-selector, .group\/home-suggestions button):not(:disabled):not([aria-disabled="true"]):not([data-disabled]):is(:hover, :focus-visible, [data-highlighted]:not([data-highlighted="false"])) {
-    color: var(--sg-ink) !important;
     background-color: var(--sg-tint) !important;
     background-image: var(--sg-gloss) !important;
     border-radius: 8px;

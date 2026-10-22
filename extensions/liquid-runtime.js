@@ -48,6 +48,47 @@
   let hovered = null;
   let focused = null;
   let composerSize = "";
+  const textRestores = [];
+  let textSheets = new WeakSet();
+  const isTextProperty = property =>
+    /^(?:color|caret-color|font(?:-.+)?|line-height|letter-spacing|word-spacing|text-.+|white-space|word-break|overflow-wrap|-webkit-text-.+)$/.test(property) ||
+    /^--(?:font-|default-(?:mono-)?font-|color-(?:text-|icon-|codex-description|token-(?:foreground|.*foreground|text-.+|conversation-.+|non-assistant-body-descendant))|vscode-(?:editor|terminal)-foreground|shimmer-(?:text|contrast))/.test(property);
+  const restoreEngineText = () => {
+    for (const { declaration, property, value, priority } of textRestores) {
+      if (!declaration.getPropertyValue(property)) declaration.setProperty(property, value, priority);
+    }
+    textRestores.length = 0;
+    textSheets = new WeakSet();
+  };
+  const releaseEngineText = () => {
+    const registry = window.__CODEX_DREAM_SKIN_STYLE_SHEETS__;
+    const sheets = new Set(registry instanceof Set ? registry : []);
+    const fallback = document.getElementById("codex-dream-skin-style")?.sheet;
+    if (fallback) sheets.add(fallback);
+    const visit = rules => {
+      for (const rule of rules) {
+        if (rule.style) {
+          const textOpacity = rule.style.opacity && !/::(?:before|after)/.test(rule.selectorText || "") &&
+            (/\b(?:p|pre|code|samp|kbd|span|placeholder)\b/.test(rule.selectorText || "") ||
+              [...rule.style].some(isTextProperty));
+          for (const property of [...rule.style]) {
+            if (!isTextProperty(property) && !(property === "opacity" && textOpacity)) continue;
+            textRestores.push({ declaration: rule.style, property,
+              value: rule.style.getPropertyValue(property),
+              priority: rule.style.getPropertyPriority(property) });
+            rule.style.removeProperty(property);
+          }
+        }
+        if (rule.cssRules) visit(rule.cssRules);
+      }
+    };
+    // Only the engine's registered sheets are touched, once per sheet revision.
+    for (const sheet of sheets) {
+      if (textSheets.has(sheet)) continue;
+      visit(sheet.cssRules);
+      textSheets.add(sheet);
+    }
+  };
   const choiceSelector = '[data-app-action-sidebar-thread-id],[data-sidebar-destination],[data-codex-plus-page-nav],.codex-plus-page-nav-item,[role="option"],[role="menuitem"],[role="menuitemradio"],[role="menuitemcheckbox"],.codex-plus-dropdown-option,.codex-session-more-menu-item,[data-ds-part="project-list"],.group\\/project-selector,.group\\/home-suggestions button';
   const composerSelector = '[data-ds-part="composer"],[data-composer-surface-variant][data-composer-radius-variant]';
   const supports = CSS.supports("backdrop-filter", 'url("#sg-test")');
@@ -186,12 +227,14 @@
     const theme = window.__CODEX_PLUS_DREAM_SKIN_THEME__?.id || window.__CODEX_DREAM_SKIN_STATE__?.themeId;
     const next = theme === "snow-day-glass" && root.getAttribute("data-dream-skin") === "active" &&
       !root.hasAttribute("data-codexthemes-theme");
+    if (next) releaseEngineText();
     if (next === enabled) return;
     enabled = next;
     if (enabled) {
       root.setAttribute(marker, version);
       bindComposer(document.querySelector(composerSelector));
     } else {
+      restoreEngineText();
       root.removeAttribute(marker);
       hovered = null;
       focused = null;
@@ -249,6 +292,7 @@
     if (disposed) return;
     disposed = true;
     enabled = false;
+    restoreEngineText();
     resize.disconnect();
     scopeObserver.disconnect();
     partObserver.disconnect();
@@ -264,7 +308,8 @@
     if (root.getAttribute(marker) === version) root.removeAttribute(marker);
   };
   style.snowDayDispose = dispose;
-  style.snowDayDiagnostics = () => ({ maps: cache.size, generated: mapCounter, owners: owned.size });
+  style.snowDayDiagnostics = () => ({ maps: cache.size, generated: mapCounter, owners: owned.size,
+    releasedTextDeclarations: textRestores.length });
   api.onCleanup(dispose);
   document.head.append(style, filterStyle, svg);
   scopeObserver.observe(root, { attributes: true, attributeFilter: ["style", "data-dream-skin", "data-codexthemes-theme"] });

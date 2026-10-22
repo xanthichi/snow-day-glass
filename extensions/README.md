@@ -4,20 +4,25 @@
 It supplies per-row and per-candidate SVG refraction that a DreamSkin ZIP cannot
 express, and clears upstream reasoning/tool/sticky blur.
 
-v0.16.0 keeps v0.14.0 materials and uses local Consolas for Latin/digits,
-with Microsoft YaHei for Chinese. Global HTML text, including component
-font declarations, forms, native UI/mono tokens and diff editor font variables,
-uses the same stack. SVG/icon fonts and mathematical renderers retain theirs.
-Sidebar neutral labels and editable composer text are pure black. Hidden
-actions, disabled opacity, semantic colors and white action icons are preserved.
-No fonts are embedded; the named stack requires this companion
-because the base ZIP accepts only generic font families.
+v0.18.0 restores typography from unskinned Codex light appearance. It removes
+the theme's custom font stacks, forced-black labels and other text overrides.
+Native UI/code font differences, foregrounds, placeholders and disabled states
+remain under Codex's own styles. No fonts are downloaded or embedded.
+Use Codex's native light appearance for the requested text palette.
 
-v0.17.0 adds only cleanup for the newer 32px bottom-spacer white fade, whose
-native class no longer includes `bg-gradient-to-t`. All v0.16.0 materials and
-font rules remain unchanged.
+DreamSkin itself supplies text overrides. This companion reversibly releases
+text declarations only in the engine's registered stylesheets, leaving their
+materials and layout unchanged. Disabling or cleaning up the companion restores
+those declarations and priorities. Other extensions' sheets and application
+stylesheets are not changed.
 
-Import the separate `snow-day-glass-theme-v0.17.0.zip` through DreamSkin first.
+The native 32px bottom-spacer white fade is cleared without changing its
+geometry. Its newer class no longer includes `bg-gradient-to-t`.
+Importing a theme ZIP does not replace an installed user extension: update
+both the ZIP and companion, then hot reload. Read-only inspection during this
+revision found the live and installed companion still at v0.14.0.
+
+Import the separate `snow-day-glass-theme-v0.18.0.zip` through DreamSkin first.
 Then run:
 
 ```powershell
@@ -34,11 +39,14 @@ To disable and restore the underlying theme styles:
 pwsh -File extensions/Install-Glass.ps1 -Disable
 ```
 
-Select **Hot Reload Extensions** again. Only this companion's CSS is removed.
+Select **Hot Reload Extensions** again. The companion removes its owned CSS and
+SVG resources and restores the engine text declarations it released.
 
 The generated extension contains bounded SVG definitions and owned stylesheets.
 It observes three root attributes and engine part markers. Resize observers
-watch only the input geometry. The transcript boundary is native CSS, so the
+watch only the input geometry. Text release reuses the existing scope observer
+and visits each registered sheet once; it adds no observer or timer.
+The transcript boundary is native CSS, so the
 extension has no scroll listener, frame callback, polling, or pointer-move
 tracking. Child-list records are ignored unless a removed subtree contains the
 active composer; only then does it look up the replacement node and release the
@@ -64,8 +72,8 @@ its geometry; closing the page restores it, avoiding text ghosting through glass
 Maps are cached with a limit of 16. The input is pinned and old hover references
 are released. The center is undisplaced; only rounded edges refract the backdrop.
 The native footer and scroll spacer gradients are transparent. Reading
-surfaces use single 50%, 78% or 70% white fills, and action controls are blue
-with white icons. The file pane owns its white fill while its Shadow DOM
+surfaces use single 50%, 78% or 70% white fills, and action controls keep blue
+backgrounds with native foregrounds. The file pane owns its white fill while its Shadow DOM
 editor background stays clear. The
 native scroll viewport ends above the absolute footer so old messages cannot
 show through the glass input during fast scrolling.
