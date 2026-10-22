@@ -272,7 +272,10 @@
     .thread-scroll-container :is([class~="sticky"][class~="bottom-0"], [data-thread-scroll-footer])
       > [aria-hidden="true"][class~="pointer-events-none"][class~="absolute"][class~="inset-x-0"][class~="-top-8"][class~="z-0"],
   :root:is([data-codexthemes-theme="snow-day-glass"], [data-snow-day-liquid-glass="__SNOW_VERSION__"])
-    [data-thread-scroll-footer] > [aria-hidden="true"].pointer-events-none.absolute.inset-x-0[class~="-top-8"][class~="z-0"] {
+    [data-thread-scroll-footer] > [aria-hidden="true"].pointer-events-none.absolute.inset-x-0[class~="-top-8"][class~="z-0"],
+  :root:is([data-codexthemes-theme="snow-day-glass"], [data-snow-day-liquid-glass="__SNOW_VERSION__"])
+    .thread-scroll-container [aria-hidden="true"][class~="sticky"][class~="bottom-0"]
+      > [aria-hidden="true"][class~="pointer-events-none"][class~="absolute"][class~="from-surface"] {
     background: transparent !important;
     background-image: none !important;
     box-shadow: none !important;

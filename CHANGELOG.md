@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.17.0 - 2026-10-22
+
+- Clear only the newer 32px native white fade inside the bottom scroll spacer.
+  It uses `from-surface` without the older `bg-gradient-to-t` or `-top-8` classes.
+- Preserve all v0.16.0 fonts, colors, materials, input shadow, layout and runtime.
+
 ## 0.16.0 - 2026-10-16
 
 - Extend local Consolas/Microsoft YaHei to global HTML text, including component

@@ -1,6 +1,9 @@
 # Snow Day Glass
 
-Created with the canonical CodexThemes theme creator. Version 0.16.0.
+Created with the canonical CodexThemes theme creator. Version 0.17.0.
+
+Only change from v0.16.0: clear the newer native bottom-spacer gradient above
+the thread composer. All fonts, colors, materials, shadows and layout remain.
 
 One continuous, uncropped winter artwork across the app. Reading surfaces use
 50%, 78% and 70% white fills with no blur, black sidebar text and blue action

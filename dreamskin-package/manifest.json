@@ -1,7 +1,7 @@
 {
   "packageVersion": 1,
   "themeId": "snow-day-glass",
-  "version": "0.16.0",
+  "version": "0.17.0",
   "skinApiVersion": 1,
   "minClientVersion": "1.5.12",
   "platforms": [
@@ -19,7 +19,7 @@
   "license": "MIT-AND-Reference-Only",
   "provenance": {
     "aiGenerated": true,
-    "summary": "Background from https://www.pixiv.net/artworks/139476242. Global HTML typography uses local Consolas and Microsoft YaHei, with pure-black sidebar labels and composer text. Preserve v0.14.0 materials, optimized runtime, icons and semantic colors. No embedded fonts."
+    "summary": "Background from https://www.pixiv.net/artworks/139476242. v0.17.0 removes only the newer native 32px white gradient above the thread composer. All v0.16.0 typography, colors, materials, layout and runtime behavior are preserved."
   },
   "files": [
     {

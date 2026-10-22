@@ -13,7 +13,11 @@ actions, disabled opacity, semantic colors and white action icons are preserved.
 No fonts are embedded; the named stack requires this companion
 because the base ZIP accepts only generic font families.
 
-Import the separate `snow-day-glass-theme-v0.16.0.zip` through DreamSkin first.
+v0.17.0 adds only cleanup for the newer 32px bottom-spacer white fade, whose
+native class no longer includes `bg-gradient-to-t`. All v0.16.0 materials and
+font rules remain unchanged.
+
+Import the separate `snow-day-glass-theme-v0.17.0.zip` through DreamSkin first.
 Then run:
 
 ```powershell
